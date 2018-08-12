@@ -1,14 +1,6 @@
 .App {
   padding: 1rem 0;
-}
-
-.App ul {
-  list-style: none;
-  padding: 0 1rem;
-}
-
-.App li {
-  padding: 0 0 1rem 0;
+  overflow: hidden;
 }
 
 .App .header {
@@ -17,4 +9,12 @@
 
 .App .work {
   padding: 0 1rem;
+}
+
+.App .footer {
+  padding: 0 1rem;
+}
+
+.App .button {
+  cursor: pointer;
 }

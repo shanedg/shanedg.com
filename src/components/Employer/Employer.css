@@ -1,0 +1,40 @@
+.employer {
+  /* background-color: rgba(0, 0, 0, 0.2); */
+  
+}
+
+.employer ul {
+  list-style: none;
+  padding: 0 1rem;
+}
+
+.employer li {
+  padding: 0 0 1rem 0;
+}
+
+.employer .role-body {
+  padding: 0 0 0 1rem;
+}
+
+.employer .strong.tldr {
+  /* text-transform: uppercase; */
+}
+
+.employer .employer-name {
+  /* display: inline-block; */
+  margin: 1rem 0 0;
+}
+
+.employer .toggle-role-details {
+  text-decoration: underline;
+  border: none;
+  padding: 0;
+}
+
+/* @media (min-width: 812px) {
+  .employer {
+    display: inline-block;
+    width: 50%;
+    vertical-align: top;
+  }
+} */

@@ -1,0 +1,57 @@
+.consent-toaster {
+  background-color: #ccc;
+  border-top: 2px solid #000;
+  position: fixed;
+  bottom: 0;
+  padding: 1rem;
+  transition: bottom 250ms ease-out;
+}
+
+.consent-toaster .dismiss-toaster {
+  position: absolute;
+  top: -0.9rem;
+  right: 0.5rem;
+  background-color: #eee;
+  padding: 0.25rem 0.5rem;
+  border-radius: 50%;
+  border: 2px solid;
+  font-weight: bold;
+}
+
+.consent-toaster .consent-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.consent-toaster .consent-options .consent-choice {
+  display: flex;
+  justify-content: space-evenly;
+  min-width: 140px;
+}
+
+.consent-toaster .consent-options .consent-choice .button {
+  padding: 0.5rem 1.25rem;
+  border: none;
+  border-radius: 2px;
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* MOUNT / UNMOUNT ANIMATIONS
+ * powered by `ReactCSSTransitionGroup`
+*/
+.consent-toaster-appear {
+  bottom: -100vh;
+}
+.consent-toaster-appear.consent-toaster-appear-active {
+  bottom: 0;
+  transition: bottom 250ms ease-out;
+}
+.consent-toaster-leave {
+  bottom: 0;
+}
+.consent-toaster-leave.consent-toaster-leave-active {
+  bottom: -100vh;
+  transition: bottom 500ms ease-out;
+}
+
