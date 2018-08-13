@@ -24,7 +24,7 @@ class ConsentToaster extends Component {
     return (
       <div className="consent-toaster" ref={this.toasterDOM}>
         <button className="button dismiss-toaster" id="dismiss-consent-toaster" onClick={this.props.dismissHandler}>X</button>
-        <p>This app may use Cookies. Do you consent to allowing this app to store Cookies on your device/browser?</p>
+        <p>This site may use Cookies. Do you consent to allowing this site to store Cookies on your device/browser?</p>
         <div className="consent-options">
           <span className="consent-choice">
             <button className="button" id="cookie-consent-yes" onClick={this.props.consentHandler}>Yes</button>

@@ -39,7 +39,7 @@
 
 /* MOUNT / UNMOUNT ANIMATIONS
  * powered by `ReactCSSTransitionGroup`
-*/
+ */
 .consent-toaster-appear {
   bottom: -50vh;
 }
