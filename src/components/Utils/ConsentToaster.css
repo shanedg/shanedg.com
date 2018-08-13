@@ -41,17 +41,17 @@
  * powered by `ReactCSSTransitionGroup`
 */
 .consent-toaster-appear {
-  bottom: -100vh;
+  bottom: -50vh;
 }
 .consent-toaster-appear.consent-toaster-appear-active {
   bottom: 0;
-  transition: bottom 250ms ease-out;
+  transition: bottom 500ms ease-out;
 }
 .consent-toaster-leave {
   bottom: 0;
 }
 .consent-toaster-leave.consent-toaster-leave-active {
-  bottom: -100vh;
+  bottom: -50vh;
   transition: bottom 500ms ease-out;
 }
 

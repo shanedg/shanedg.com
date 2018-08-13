@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-
 import Cookies from 'js-cookie';
-
 import './App.css';
-
 import Employer from './components/Employer/Employer';
 import ConsentToaster from './components/Utils/ConsentToaster';
 
@@ -13,17 +10,28 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      consent: this.props.consent
+      consent: this.props.consent,
+      extraPadding: {
+        paddingBottom: '0'
+      }
     };
+
+    this.toasterRef = React.createRef();
 
     this.consentHandler = this.consentHandler.bind(this);
     this.dismissHandler = this.dismissHandler.bind(this);
   }
 
   componentDidMount() {
-    // TODO: get height of consent toaster if mounted
-    // and apply that much additional padding to bottom of
-    // entire .App
+    setTimeout(() => {
+      if (!this.state.consent.priorConsent) {
+        this.setState({
+          extraPadding: {
+            paddingBottom: this.toasterRef.current.state.height + 'px'
+          }
+        });
+      }
+    }, 0);
   }
 
   consentHandler(e) {
@@ -36,7 +44,8 @@ class App extends Component {
       consent: {
         priorConsent: true,
         consentGranted: consented
-      }
+      },
+      extraPadding: {}
     });
     Cookies.set('cookie_consent', consented ? 'true' : 'false');
   }
@@ -46,7 +55,8 @@ class App extends Component {
       this.setState({
         consent: {
           priorConsent: true
-        }
+        },
+        extraPadding: {}
       });
     }
   }
@@ -76,7 +86,7 @@ class App extends Component {
     }];
 
     return (
-      <div className="App">
+      <div className="App" style={this.state.extraPadding}>
         <header className="header">
           <h1 className="h1">shane garrity</h1>
           <p>what up this is me no apologies body is my canvas and my tattoos are my story</p>
@@ -96,11 +106,11 @@ class App extends Component {
         <ReactCSSTransitionGroup
           transitionName="consent-toaster"
           transitionAppear={true}
-          transitionAppearTimeout={250}
+          transitionAppearTimeout={500}
           transitionEnter={false}
-          transitionLeaveTimeout={250}>
+          transitionLeaveTimeout={500}>
           {!this.state.consent.priorConsent &&
-            <ConsentToaster key={'consent-toaster'} consentHandler={this.consentHandler} dismissHandler={this.dismissHandler} />
+            <ConsentToaster ref={this.toasterRef} key={'consent-toaster'} consentHandler={this.consentHandler} dismissHandler={this.dismissHandler} />
           }
         </ReactCSSTransitionGroup>
       </div>
