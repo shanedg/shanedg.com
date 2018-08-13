@@ -12,10 +12,17 @@
   top: -0.9rem;
   right: 0.5rem;
   background-color: #eee;
-  padding: 0.25rem 0.5rem;
+  padding: 0.125rem 0.35rem;
   border-radius: 50%;
-  border: 2px solid;
+  border: 2px solid #000;
   font-weight: bold;
+
+  transition: background-color 250ms ease-out, color 250ms ease-out;
+}
+
+.consent-toaster .dismiss-toaster:hover {
+  background-color: #000;
+  color: #fff;
 }
 
 .consent-toaster .consent-options {
@@ -35,6 +42,14 @@
   border: none;
   border-radius: 2px;
   box-shadow: 2px 2px rgba(0, 0, 0, 0.2);
+
+  transition: background-color 250ms ease-out, color 250ms ease-out;
+}
+
+.consent-toaster .consent-options .consent-choice .button:hover {
+  /* box-shadow: 2px 2px rgba(0, 0, 0, 0.2); */
+  background-color: #000;
+  color: #fff;
 }
 
 /* MOUNT / UNMOUNT ANIMATIONS

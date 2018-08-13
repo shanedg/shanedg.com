@@ -4,6 +4,7 @@ import Cookies from 'js-cookie';
 import './App.css';
 import Header from './components/Header/Header';
 import Employer from './components/Employer/Employer';
+import Footer from './components/Footer/Footer';
 import ConsentToaster from './components/Utils/ConsentToaster';
 
 class App extends Component {
@@ -98,9 +99,10 @@ class App extends Component {
           })}
 
         </article>
-        <footer className="footer">
+        {/* <footer className="footer">
           <h2>contact me</h2>
-        </footer>
+        </footer> */}
+        <Footer />
         
         <ReactCSSTransitionGroup
           transitionName="consent-toaster"

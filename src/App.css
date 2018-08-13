@@ -4,6 +4,15 @@
   transition: padding 500ms ease-out;
 }
 
+.App a[target="_blank"] {
+  background-color: #000;
+  color: #fff;
+}
+
+.App a:hover {
+  
+}
+
 .App .work {
   padding: 0 1rem;
 }

@@ -3,6 +3,11 @@
   padding: 0 1rem;
 }
 
+.header .h1 {
+  position: relative;
+  z-index: 1;
+}
+
 .header .portrait {
   margin: 0;
 }
