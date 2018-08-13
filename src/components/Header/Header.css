@@ -1,0 +1,22 @@
+.header {
+  position: relative;
+  padding: 0 1rem;
+}
+
+.header .portrait {
+  margin: 0;
+}
+
+.header .portrait img {
+  position: absolute;
+  top: 0;
+  right: -2rem;
+  max-width: 45%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.header .blurb {
+  position: relative;
+  max-width: 76%;
+}

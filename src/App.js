@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import Cookies from 'js-cookie';
 import './App.css';
+import Header from './components/Header/Header';
 import Employer from './components/Employer/Employer';
 import ConsentToaster from './components/Utils/ConsentToaster';
 
@@ -54,7 +55,8 @@ class App extends Component {
     if (e.currentTarget.id === 'dismiss-consent-toaster') {
       this.setState({
         consent: {
-          priorConsent: true
+          priorConsent: true,
+          consentGranted: false
         },
         extraPadding: {}
       });
@@ -87,10 +89,7 @@ class App extends Component {
 
     return (
       <div className="App" style={this.state.extraPadding}>
-        <header className="header">
-          <h1 className="h1">shane garrity</h1>
-          <p>what up this is me no apologies body is my canvas and my tattoos are my story</p>
-        </header>
+        <Header />
         <article className="article work">
           <h2 className="h2">work</h2>
 

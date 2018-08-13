@@ -1,10 +1,7 @@
 .App {
   padding: 1rem 0;
   overflow: hidden;
-}
-
-.App .header {
-  padding: 0 1rem;
+  transition: padding 500ms ease-out;
 }
 
 .App .work {
