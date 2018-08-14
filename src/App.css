@@ -9,6 +9,11 @@
   color: #fff;
 }
 
+.App a[href*="mailto:"] {
+  background-color: orange;
+  color: #fff;
+}
+
 .App a:hover {
   
 }
