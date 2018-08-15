@@ -1,3 +1,22 @@
+## create-react-app bootstrapped spa for shanedg.com
+
+### installation
+`yarn install`
+
+### dev
+`yarn start`
+
+### production build
+`yarn build`
+
+### using docker (`docker-compose`)
+`docker-compose up -d --build`
+`docker-compose stop`
+
+
+##...
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
