@@ -3,7 +3,7 @@ version: '3.5'
 services:
 
   sample-app:
-    container_name: sample-app-shanedg
+    container_name: shanedg-dot-com
     build:
       context: .
       dockerfile: Dockerfile
