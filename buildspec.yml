@@ -17,13 +17,13 @@ phases:
   pre_build:
     commands:
       - echo enter pre_build phase..
-      - yarn install
+      - npm install
     finally:
       - echo exit pre_build phase..
   build:
     commands:
       - echo enter build phase..
-      - yarn build
+      - npm run build
     finally:
       - echo exit build phase..
   post_build:
