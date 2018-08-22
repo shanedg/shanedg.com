@@ -19,7 +19,7 @@ phases:
     commands:
       - echo enter pre_build phase..
       - yarn install
-      - yarn test
+      - yarn test:ci
     finally:
       - echo exit pre_build phase..
   build:
