@@ -5,6 +5,8 @@
   bottom: 0;
   padding: 1rem;
   transition: bottom 250ms ease-out;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .consent-toaster .dismiss-toaster {
