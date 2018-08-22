@@ -9,32 +9,28 @@ version: 0.2
 #     key: "value"
             
 phases:
-  # install:
-  #   commands:
-  #     - command
-  #     - command
-  #   finally:
-  #     - command
-  #     - command
+  install:
+    commands:
+      - echo enter install phase..
+    finally:
+      - echo exit install phase..
   pre_build:
     commands:
+      - echo enter pre_build phase..
       - yarn install
-    # finally:
-    #   - command
-    #   - command
+    finally:
+      - echo exit pre_build phase..
   build:
     commands:
+      - echo enter build phase..
       - yarn build
-    # finally:
-    #   - command
-    #   - command
-  # post_build:
-  #   commands:
-  #     - command
-  #     - command
-  #   finally:
-  #     - command
-  #     - command
+    finally:
+      - echo exit build phase..
+  post_build:
+    commands:
+      - echo enter post_build phase..
+    finally:
+      - echo exit post_build phase..
 artifacts:
   files:
     - '**/*'
