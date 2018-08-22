@@ -1,0 +1,43 @@
+version: 0.2
+
+# env:
+#   variables:
+#     key: "value"
+#     key: "value"
+#   parameter-store:
+#     key: "value"
+#     key: "value"
+            
+phases:
+  install:
+    commands:
+      - echo enter install phase..
+    finally:
+      - echo exit install phase..
+  pre_build:
+    commands:
+      - echo enter pre_build phase..
+      - yarn install
+    finally:
+      - echo exit pre_build phase..
+  build:
+    commands:
+      - echo enter build phase..
+      - yarn build
+    finally:
+      - echo exit build phase..
+  post_build:
+    commands:
+      - echo enter post_build phase..
+    finally:
+      - echo exit post_build phase..
+artifacts:
+  files:
+    - '**/*'
+  name: shanedg-dot-com-$(AWS_REGION)-$(date +%Y-%m-%d) 
+  # discard-paths: yes
+  base-directory: build
+# cache:
+#   paths:
+#     - path
+#     - path
