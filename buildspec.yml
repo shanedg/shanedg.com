@@ -1,9 +1,8 @@
 version: 0.2
 
-# env:
-#   variables:
-#     key: "value"
-#     key: "value"
+env:
+  variables:
+    CI: "true"
 #   parameter-store:
 #     key: "value"
 #     key: "value"
@@ -19,7 +18,7 @@ phases:
     commands:
       - echo enter pre_build phase..
       - yarn install
-      - yarn test:ci
+      - yarn test
     finally:
       - echo exit pre_build phase..
   build:
