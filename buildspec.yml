@@ -12,18 +12,19 @@ phases:
   install:
     commands:
       - echo enter install phase..
+      - npm install yarn -g
     finally:
       - echo exit install phase..
   pre_build:
     commands:
       - echo enter pre_build phase..
-      - npm install
+      - yarn install
     finally:
       - echo exit pre_build phase..
   build:
     commands:
       - echo enter build phase..
-      - npm run build
+      - yarn build
     finally:
       - echo exit build phase..
   post_build:
