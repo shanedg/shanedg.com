@@ -99,15 +99,18 @@ class App extends Component {
           })}
 
         </article>
+        {/* <footer className="footer">
+          <h2>contact me</h2>
+        </footer> */}
         <Footer />
+        
         <ReactCSSTransitionGroup
           transitionName="consent-toaster"
           transitionAppear={true}
           transitionAppearTimeout={500}
           transitionEnter={false}
           transitionLeaveTimeout={500}>
-          {this.state.consent &&
-            !this.state.consent.priorConsent &&
+          {!this.state.consent.priorConsent &&
             <ConsentToaster ref={this.toasterRef} key={'consent-toaster'} consentHandler={this.consentHandler} dismissHandler={this.dismissHandler} />
           }
         </ReactCSSTransitionGroup>
