@@ -38,7 +38,6 @@ artifacts:
   name: shanedg-dot-com-$(AWS_REGION)-$(date +%Y-%m-%d) 
   # discard-paths: yes
   base-directory: build
-# cache:
-#   paths:
-#     - path
-#     - path
+cache:
+  paths:
+    - 'node_modules/**/*'
