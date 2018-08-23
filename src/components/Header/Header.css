@@ -14,9 +14,9 @@
 
 .header .portrait img {
   position: absolute;
-  top: 0;
+  top: 1rem;
   right: -2rem;
-  max-width: 45%;
+  max-width: 35%;
   border-radius: 50%;
   overflow: hidden;
   border: 2px solid;
@@ -27,5 +27,18 @@
 
 .header .blurb {
   position: relative;
-  max-width: 76%;
+  max-width: 65%;
+}
+
+@media (min-width: 768px) {
+  .header {
+    /* display: flex;
+    flex-wrap: wrap; */
+    /* position: static; */
+  }
+
+  .header .portrait img {
+    /* position: static; */
+    /* max-width: 20%; */
+  }
 }
