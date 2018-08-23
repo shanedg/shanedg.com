@@ -1,29 +1,58 @@
 .consent-toaster {
-  background-color: #ccc;
-  border-top: 2px solid #000;
+  background-color: #fff;
+  border-top: 1px solid #000;
   position: fixed;
   bottom: 0;
-  padding: 1rem;
+  /* padding: 1rem 1rem 0; */
+  /* padding: 0.5rem 0.5rem 0; */
+  padding: 0.5rem;
   transition: bottom 250ms ease-out;
   width: 100%;
   box-sizing: border-box;
+  font-size: 0.75rem;
+}
+
+@media (min-width: 700px) {
+  .consent-toaster {
+    /* padding: .5rem 20% 0; */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0.5rem 1.75rem 0.5rem 0.5rem;
+  }
+}
+
+.consent-toaster p {
+  margin: 0;
+}
+
+@media (min-width: 700px) {
+  p {
+    flex-basis: 60%;
+  }
 }
 
 .consent-toaster .dismiss-toaster {
   position: absolute;
-  top: -0.9rem;
+  top: -1.5rem;
   right: 0.5rem;
-  background-color: #eee;
-  padding: 0.125rem 0.35rem;
-  border-radius: 50%;
-  border: 2px solid #000;
-  font-weight: bold;
+  /* background-color: #eee; */
+  background-color: #fff;
 
+  padding: 0.125rem 0.35rem;
+  border: 0;
+  font-weight: bold;
   transition: background-color 250ms ease-out, color 250ms ease-out;
 }
 
+@media (min-width: 700px) {
+  .consent-toaster .dismiss-toaster {
+    top: 0.85rem;
+  }
+}
+
 .consent-toaster .dismiss-toaster:hover {
-  background-color: #000;
+  background-color: #5ccdec;
   color: #fff;
 }
 
@@ -31,26 +60,50 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
-.consent-toaster .consent-options .consent-choice {
+@media (min-width: 700px) {
+  .consent-toaster .consent-options {
+    flex-basis: 38%;
+  }
+}
+
+.consent-toaster .consent-options .span {
   display: flex;
-  justify-content: space-evenly;
-  min-width: 140px;
+  flex-basis: 48%;
+  margin: 0.5rem 0 0;
+  justify-content: center;
+}
+
+@media (min-width: 700px) {
+  .consent-toaster .consent-options .span {
+    margin: 0;
+  }
+}
+
+.consent-toaster .consent-options .span .aside a {
+  line-height: 2.1;
+  padding: 0.3rem;
+}
+
+.consent-toaster .consent-options .span.consent-choice {
+  justify-content: space-between;
 }
 
 .consent-toaster .consent-options .consent-choice .button {
   padding: 0.5rem 1.25rem;
-  border: none;
+  border: 1px solid #ddd;
   border-radius: 2px;
   box-shadow: 2px 2px rgba(0, 0, 0, 0.2);
-
+  display: inline-block;
+  width: 48%;
   transition: background-color 250ms ease-out, color 250ms ease-out;
+  text-transform: uppercase;
 }
 
 .consent-toaster .consent-options .consent-choice .button:hover {
-  /* box-shadow: 2px 2px rgba(0, 0, 0, 0.2); */
-  background-color: #000;
+  background-color: #5ccdec;
   color: #fff;
 }
 

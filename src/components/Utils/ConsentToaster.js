@@ -26,13 +26,15 @@ class ConsentToaster extends Component {
         <button className="button dismiss-toaster" id="dismiss-consent-toaster" onClick={this.props.dismissHandler}>X</button>
         <p>This site may use Cookies. Do you consent to allowing this site to store Cookies on your device/browser?</p>
         <div className="consent-options">
-          <span className="consent-choice">
+          <span className="span consent-choice">
             <button className="button" id="cookie-consent-yes" onClick={this.props.consentHandler}>Yes</button>
             <button className="button" id="cookie-consent-no" onClick={this.props.consentHandler}>No</button>
           </span>
-          <aside>
-            <a href="https://en.wikipedia.org/wiki/HTTP_cookie" target="_blank" rel="noopener noreferrer">Learn more about Cookies</a>
-          </aside>
+          <span className="span">
+            <aside className="aside">
+              <a href="https://en.wikipedia.org/wiki/HTTP_cookie" target="_blank" rel="noopener noreferrer">More about Cookies</a>
+            </aside>
+          </span>
         </div>
       </div>
     );

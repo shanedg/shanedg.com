@@ -5,6 +5,11 @@
   position: relative;
 }
 
+.App a {
+  transition: background-color 250ms ease-out, color 250ms ease-out;
+  padding: 0 0.3rem;
+}
+
 .App a[target="_blank"] {
   background-color: #000;
   color: #fff;
@@ -13,10 +18,12 @@
 .App a[href*="mailto:"] {
   background-color: orange;
   color: #fff;
+  
 }
 
 .App a:hover {
-  
+  background-color: #5ccdec;
+  color: #fff;
 }
 
 .App .work {

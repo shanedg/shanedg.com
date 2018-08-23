@@ -1,6 +1,7 @@
 .employer ul {
   list-style: none;
   padding: 0 1rem;
+  margin: 1rem 0 0;
 }
 
 .employer li {
@@ -17,7 +18,8 @@
 
 .employer .role-body .role-heading {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
+  align-items: baseline;
 }
 
 .employer .role-body .role-heading :nth-child(1) {
@@ -29,16 +31,20 @@
   border: none;
   padding: 0.125rem 0.35rem;
   background-color: #eee;
-  border-radius: 50%;
-  border: 2px solid #000;
+  /* border-radius: 50%; */
+  /* border: 1px solid #000; */
   font-weight: bold;
 
   transition: background-color 250ms ease-out, color 250ms ease-out;
 }
 
 .employer .role-body .role-heading .toggle-role-details:hover {
-  background-color: #000;
+  background-color: #5ccdec;
   color: #fff;
+}
+
+.employer .role-body .role-heading .role-title {
+  margin: 1rem 0 0;
 }
 
 /* MOUNT / UNMOUNT ANIMATIONS
