@@ -33,7 +33,7 @@
 
 @media (min-width: 768px) {
   .App {
-    max-width: 90%;
-    margin: 0 auto;
+    /* max-width: 90%;
+    margin: 0 auto; */
   }
 }
