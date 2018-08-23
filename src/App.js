@@ -40,6 +40,11 @@ class App extends Component {
     let consented = false;
     if (e.currentTarget.id === 'cookie-consent-yes') {
       consented = true;
+
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        'event': 'cookie_consent_granted'
+      });
     }
 
     this.setState({
