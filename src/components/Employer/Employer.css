@@ -50,7 +50,7 @@
 /* MOUNT / UNMOUNT ANIMATIONS
  * powered by `ReactCSSTransitionGroup`
  */
-.role-details-appear {
+/* .role-details-appear {
   max-height: 0;
   transform: translateX(-100vw);
 }
@@ -76,7 +76,7 @@
   max-height: 0;
   transform: translateX(-100vw);
   transition: transform 500ms ease-in-out, max-height 250ms ease-out 500ms;
-}
+} */
 
 /* @media (min-width: 812px) {
   .employer {

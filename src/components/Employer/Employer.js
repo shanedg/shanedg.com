@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+// import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+// import ReactMotion, { StaggeredMotion, spring } from 'react-motion';
+// import { StaggeredMotion, spring } from 'react-motion';
+import { Motion, StaggeredMotion, spring } from 'react-motion';
+
 import './Employer.css';
 import SimpleDateRange from './SimpleDateRange';
+import { height } from 'window-size';
 
 class Employer extends Component {
   constructor(props) {
@@ -32,17 +37,37 @@ class Employer extends Component {
 
             <h4 className="h4 role-title">{this.props.jobDetails.roleTitle}</h4>
             {/* <p className="p tldr"><strong className="strong tldr">tl;dr</strong> &mdash; {this.props.jobDetails.highlightsBlurb}</p> */}
-
             
           </span>
 
-          <ReactCSSTransitionGroup
+          {this.state.open &&
+            this.props.jobDetails.responsibilities &&
+            <StaggeredMotion
+              // defaultStyles={[{h: 0}, {h: 0}, {h: 0}]}
+              defaultStyles={[{ x: -100}, { x: -100}, { x: -100}]}
+              styles={prevInterpolatedStyles => prevInterpolatedStyles.map((_, i) => {
+                return i === 0
+                  ? {x: spring(0)}
+                  : {x: spring(prevInterpolatedStyles[i - 1].x)}
+              })}>
+              {interpolatingStyles =>
+                <div>
+                  {interpolatingStyles.map((style, i) => {
+                    return (
+                      <div key={i} style={{border: '1px solid', height: '20px', transform: `translateX(${style.x}vh`}} />
+                    )})
+                  }
+                </div>
+              }
+            </StaggeredMotion>
+          }
+
+          {/* <ReactCSSTransitionGroup
             transitionName="role-details"
             transitionAppear={true}
             transitionAppearTimeout={750}
             transitionEnterTimeout={750}
             transitionLeaveTimeout={750}>
-              {/* RESPONSIBILITIES */}
               {this.state.open &&
                 this.props.jobDetails.responsibilities &&
                 <section className="section responsibilities">
@@ -55,7 +80,6 @@ class Employer extends Component {
                 </section>
               }
 
-              {/* PROJECTS */}
               {this.state.open &&
                 this.props.jobDetails.projects &&
                 <section className="section projects">
@@ -67,7 +91,7 @@ class Employer extends Component {
                   </ul>
                 </section>
               }
-            </ReactCSSTransitionGroup>
+            </ReactCSSTransitionGroup> */}
           
         </div>
       </section>
