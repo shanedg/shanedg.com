@@ -18,7 +18,6 @@
 
 .employer .role-body .role-heading {
   display: flex;
-  /* align-items: center; */
   align-items: baseline;
 }
 
@@ -31,8 +30,6 @@
   border: none;
   padding: 0.125rem 0.35rem;
   background-color: #eee;
-  /* border-radius: 50%; */
-  /* border: 1px solid #000; */
   font-weight: bold;
 
   transition: background-color 250ms ease-out, color 250ms ease-out;
@@ -47,41 +44,8 @@
   margin: 1rem 0 0;
 }
 
-/* MOUNT / UNMOUNT ANIMATIONS
- * powered by `ReactCSSTransitionGroup`
- */
-/* .role-details-appear {
-  max-height: 0;
-  transform: translateX(-100vw);
-}
-.role-details.role-details-appear-active {
-  max-height: 80vh;
-  transform: translateX(0);
-  transition: transform 500ms ease-in-out 250ms, max-height 250ms ease-in-out;
-}
-.role-details-enter {
-  max-height: 0;
-  transform: translateX(-100vw);
-}
-.role-details-enter.role-details-enter-active {
-  max-height: 80vh;
-  transform: translateX(0);
-  transition: transform 500ms ease-in-out 250ms, max-height 250ms ease-in-out;
-}
-.role-details-leave {
-  max-height: 80vh;
-  transform: translateX(0);
-}
-.role-details-leave.role-details-leave-active {
-  max-height: 0;
-  transform: translateX(-100vw);
-  transition: transform 500ms ease-in-out, max-height 250ms ease-out 500ms;
-} */
-
-/* @media (min-width: 812px) {
-  .employer {
-    display: inline-block;
-    width: 50%;
-    vertical-align: top;
+@media (min-width: 812px) {
+  .employer .role-body .responsibilities {
+    max-width: 75%;
   }
-} */
+}
