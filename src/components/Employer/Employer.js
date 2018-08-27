@@ -11,42 +11,52 @@ class Employer extends Component {
     super(props);
     this.state = {
       open: false,
-
-      // items: [{
-      //   key: 'a', size: 100
-      // }, {
-      //   key: 'b', size: 100
-      // }, {
-      //   key: 'c', size: 100
-      // }]
-
-      // items: [{
-      //   key: 'a', size: 100
-      // }]
-
       items: []
-
     };
 
     this.toggleRoleDetails = this.toggleRoleDetails.bind(this);
-    this.test = this.test.bind(this);
   }
 
   toggleRoleDetails() {
-    this.setState((prevState) => ({
-      open: !prevState.open
-    }));
+    this.setState((prevState) => {
+
+      // return ({
+      //   open: !prevState.open
+      // })
+
+      if (prevState.items.length > 0) {
+        return ({
+          items: []
+        });
+      } else {
+        return ({
+          // items: [{
+          //   key: 'responsibilities',
+          //   size: 500
+          // }, {
+          //   key: 'projects',
+          //   size: 500
+          // }]
+
+          items: [{
+            key: 'responsibilities',
+            size: 1000
+          }]
+        })
+      }
+
+    });
   }
 
   willLeave() {
     return {
-      height: spring(0, presets.stiff)
+      maxHeight: spring(0, presets.noWobble),
     };
   }
 
   willEnter() {
     return {
-      height: 0
+      maxHeight: 0
     }
   }
 
@@ -54,7 +64,7 @@ class Employer extends Component {
     return this.state.items.map(item => ({
       ...item,
       style: {
-        height: 0
+        maxHeight: 0
       }
     }));
   }
@@ -66,25 +76,10 @@ class Employer extends Component {
       return {
         ...item,
         style: {
-          // height: spring(100, presets.stiff)
-          height: spring(item.size, presets.stiff)
+          maxHeight: spring(500, presets.stiff)
         }
       };
     });
-  }
-
-  test() {
-    this.setState({
-      items: [{
-        key: 'responsibilities', size: 100
-      }, {
-        key: 'projects', size: 100
-      }]
-    });
-  }
-
-  componentDidMount() {
-    this.test();
   }
 
   render() {
@@ -100,7 +95,6 @@ class Employer extends Component {
             <h4 className="h4 role-title">{this.props.jobDetails.roleTitle}</h4>
           </span>
 
-          <button onClick={this.test}>duh</button>
           <TransitionMotion
             defaultStyles={this.getDefaultStyles()}
             willLeave={this.willLeave}
@@ -110,8 +104,63 @@ class Employer extends Component {
             {interpolatedStyles => 
               <div>
                 {interpolatedStyles.map((config, i) => {
-                  return <div key={config.key} style={{...config.style, border: '1px solid'}}>
-                    {config.key}
+                  return <div key={config.key} style={{
+                    ...config.style,
+                    overflow: 'hidden'
+                  }}>
+                    {this.props.jobDetails.responsibilities &&
+                      <ul>
+                        <StaggeredMotion
+                          defaultStyles={range(this.props.jobDetails.responsibilities.length).map(() => ({ x: -100}))}
+                          styles={prevInterpolatedStyles => prevInterpolatedStyles.map((_, i) => {
+                            return i === 0
+                              ? {x: spring(0)}
+                              : {x: spring(prevInterpolatedStyles[i - 1].x, presets.stiff)}
+                          })}>
+                          {interpolatingStyles =>
+                            <section className="section responsibilities">
+                              <h5>responsibilities:</h5>
+                              <ul>
+                                {interpolatingStyles.map((style, i) => {
+                                  return (
+                                    <li key={i} style={{transform: `translateX(${style.x}vw`}}>
+                                      {this.props.jobDetails.responsibilities[i]}
+                                    </li>
+                                  )})
+                                }
+                              </ul>
+                            </section>
+                          }
+                        </StaggeredMotion>
+                      </ul>
+                    }
+
+                    {this.props.jobDetails.projects &&
+                      <ul>
+                        <StaggeredMotion
+                          defaultStyles={range(this.props.jobDetails.projects.length).map(() => ({ x: -100}))}
+                          styles={prevInterpolatedStyles => prevInterpolatedStyles.map((_, i) => {
+                            return i === 0
+                              ? {x: spring(0)}
+                              : {x: spring(prevInterpolatedStyles[i - 1].x, presets.stiff)}
+                          })}>
+                          {interpolatingStyles =>
+                            <section className="section projects">
+                              <h5>projects:</h5>
+                              <ul>
+                                {interpolatingStyles.map((style, i) => {
+                                  return (
+                                    <li key={i} style={{transform: `translateX(${style.x}vw`}}>
+                                      {this.props.jobDetails.projects[i]}
+                                    </li>
+                                  )})
+                                }
+                              </ul>
+                            </section>
+                          }
+                        </StaggeredMotion>
+                      </ul>
+                    }
                   </div>
                 })}
               </div>
@@ -119,7 +168,7 @@ class Employer extends Component {
           </TransitionMotion>
 
           {/* {this.state.open && */}
-            {this.props.jobDetails.responsibilities &&
+            {/* {this.props.jobDetails.responsibilities &&
             <ul>
               <StaggeredMotion
                 defaultStyles={range(this.props.jobDetails.responsibilities.length).map(() => ({ x: -100}))}
@@ -144,10 +193,10 @@ class Employer extends Component {
                 }
               </StaggeredMotion>
             </ul>
-          }
+          } */}
 
           {/* {this.state.open && */}
-            {this.props.jobDetails.projects &&
+            {/* {this.props.jobDetails.projects &&
             <ul>
               <StaggeredMotion
                 defaultStyles={range(this.props.jobDetails.projects.length).map(() => ({ x: -100}))}
@@ -172,7 +221,7 @@ class Employer extends Component {
                 }
               </StaggeredMotion>
             </ul>
-          }
+          } */}
 
         </div>
       </section>
