@@ -166,63 +166,6 @@ class Employer extends Component {
               </div>
             }
           </TransitionMotion>
-
-          {/* {this.state.open && */}
-            {/* {this.props.jobDetails.responsibilities &&
-            <ul>
-              <StaggeredMotion
-                defaultStyles={range(this.props.jobDetails.responsibilities.length).map(() => ({ x: -100}))}
-                styles={prevInterpolatedStyles => prevInterpolatedStyles.map((_, i) => {
-                  return i === 0
-                    ? {x: spring(0)}
-                    : {x: spring(prevInterpolatedStyles[i - 1].x, presets.stiff)}
-                })}>
-                {interpolatingStyles =>
-                  <section className="section responsibilities">
-                    <h5>responsibilities:</h5>
-                    <ul>
-                      {interpolatingStyles.map((style, i) => {
-                        return (
-                          <li key={i} style={{transform: `translateX(${style.x}vw`}}>
-                            {this.props.jobDetails.responsibilities[i]}
-                          </li>
-                        )})
-                      }
-                    </ul>
-                  </section>
-                }
-              </StaggeredMotion>
-            </ul>
-          } */}
-
-          {/* {this.state.open && */}
-            {/* {this.props.jobDetails.projects &&
-            <ul>
-              <StaggeredMotion
-                defaultStyles={range(this.props.jobDetails.projects.length).map(() => ({ x: -100}))}
-                styles={prevInterpolatedStyles => prevInterpolatedStyles.map((_, i) => {
-                  return i === 0
-                    ? {x: spring(0)}
-                    : {x: spring(prevInterpolatedStyles[i - 1].x, presets.stiff)}
-                })}>
-                {interpolatingStyles =>
-                  <section className="section projects">
-                    <h5>projects:</h5>
-                    <ul>
-                      {interpolatingStyles.map((style, i) => {
-                        return (
-                          <li key={i} style={{transform: `translateX(${style.x}vw`}}>
-                            {this.props.jobDetails.projects[i]}
-                          </li>
-                        )})
-                      }
-                    </ul>
-                  </section>
-                }
-              </StaggeredMotion>
-            </ul>
-          } */}
-
         </div>
       </section>
     );
