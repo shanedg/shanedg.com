@@ -56,7 +56,7 @@ class SimpleDateRange extends Component {
           {startString}
         </time> &ndash; <time dateTime={end}>
           {endString === 'present' ? <em>{endString}</em> : endString}
-        </time> [{durationYears} {durationUnits}]
+        </time> [ {durationYears} {durationUnits} ]
       </span>
     );
   }
