@@ -1,8 +1,13 @@
-.App {
+.App-inner {
   padding: 1rem 0;
-  overflow: hidden;
+  
   transition: padding 500ms ease-out;
   position: relative;
+
+  display: block;
+  margin: 0 auto;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .App a {
@@ -39,8 +44,8 @@
 }
 
 @media (min-width: 768px) {
-  .App {
-    /* max-width: 90%;
-    margin: 0 auto; */
+  .App-inner {
+    overflow: visible;
+    max-width: 768px;
   }
 }

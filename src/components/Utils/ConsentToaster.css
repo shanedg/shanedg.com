@@ -1,20 +1,26 @@
+.consent-toaster-wrap {
+  position: fixed;
+  bottom: 0;
+  transition: bottom 250ms ease-out;
+  width: 100%;
+  /* box-sizing: border-box; */
+
+}
+
 .consent-toaster {
   background-color: #fff;
   border-top: 1px solid #000;
-  position: fixed;
-  bottom: 0;
-  /* padding: 1rem 1rem 0; */
-  /* padding: 0.5rem 0.5rem 0; */
+  /* position: fixed; */
+  /* bottom: 0; */
   padding: 0.5rem;
-  transition: bottom 250ms ease-out;
-  width: 100%;
+  /* transition: bottom 250ms ease-out; */
+  /* width: 100%; */
   box-sizing: border-box;
   font-size: 0.75rem;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 768px) {
   .consent-toaster {
-    /* padding: .5rem 20% 0; */
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -26,7 +32,7 @@
   margin: 0;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 768px) {
   p {
     flex-basis: 60%;
   }
@@ -45,7 +51,7 @@
   transition: background-color 250ms ease-out, color 250ms ease-out;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 768px) {
   .consent-toaster .dismiss-toaster {
     top: 0.85rem;
   }
@@ -63,7 +69,7 @@
   flex-wrap: wrap;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 768px) {
   .consent-toaster .consent-options {
     flex-basis: 38%;
   }
@@ -76,7 +82,7 @@
   justify-content: center;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 768px) {
   .consent-toaster .consent-options .span {
     margin: 0;
   }

@@ -94,17 +94,23 @@ class App extends Component {
     }];
 
     return (
-      <div className="App" style={this.state.extraPadding}>
-        <Header />
-        <article className="article work">
-          <h2 className="h2">work</h2>
+      <div className="App"
+        style={this.state.extraPadding}
+        >
+        <div className="App-inner"
+          // style={this.state.extraPadding}
+          >
+          <Header />
+          <article className="article work">
+            <h2 className="h2">work</h2>
 
-          {work.map((job, index) => {
-            return <Employer key={index} jobDetails={job} />
-          })}
+            {work.map((job, index) => {
+              return <Employer key={index} jobDetails={job} />
+            })}
 
-        </article>
-        <Footer />
+          </article>
+          <Footer />
+        </div>
         <ReactCSSTransitionGroup
           transitionName="consent-toaster"
           transitionAppear={true}
