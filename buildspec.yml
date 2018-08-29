@@ -3,10 +3,8 @@ version: 0.2
 env:
   variables:
     CI: "true"
-#   parameter-store:
-#     key: "value"
-#     key: "value"
-            
+  parameter-store:
+    DISTRIBUTION_ID: "/Prod/CodeBuild/shanedg.com/Cloudfront_Distribution_ID"
 phases:
   install:
     commands:
@@ -18,6 +16,9 @@ phases:
   build:
     commands:
       - yarn build
+  post_build:
+    commands:
+      - aws cloudfront create-invalidation --distribution-id "${DISTRIBUTION_ID}" --paths "/*"
 artifacts:
   files:
     - '**/*'
