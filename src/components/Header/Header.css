@@ -31,14 +31,14 @@
 }
 
 @media (min-width: 768px) {
-  .header {
-    /* display: flex;
-    flex-wrap: wrap; */
-    /* position: static; */
+  /* .header {
+    display: flex;
+    flex-wrap: wrap;
+    position: static;
   }
 
   .header .portrait img {
-    /* position: static; */
-    /* max-width: 20%; */
-  }
+    position: static;
+    max-width: 20%;
+  } */
 }
