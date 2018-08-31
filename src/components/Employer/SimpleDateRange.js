@@ -40,15 +40,14 @@ class SimpleDateRange extends Component {
     }
 
     let end = this.props.dates.end === 'present' ? new Date() : this.props.dates.end;
-    let durationYears = Math.floor((end - this.props.dates.start)/(60*60*24*365*1000));
-    let durationUnits;
-    if (durationYears < 1) {
-      // TODO: months
-    } else if (durationYears === 1) {
-      durationUnits = 'year';
-    } else {
-      durationUnits = 'years';
-    }
+    // let durationYears = Math.floor((end - this.props.dates.start)/(60*60*24*365*1000));
+    // let durationUnits;
+    // if (durationYears < 1) {
+    // } else if (durationYears === 1) {
+    //   durationUnits = 'year';
+    // } else {
+    //   durationUnits = 'years';
+    // }
 
     return (
       <span className="simple-dates">
@@ -56,7 +55,7 @@ class SimpleDateRange extends Component {
           {startString}
         </time> &ndash; <time dateTime={end}>
           {endString === 'present' ? <em>{endString}</em> : endString}
-        </time> [ {durationYears} {durationUnits} ]
+        </time> {/*[ {durationYears} {durationUnits} ]*/}
       </span>
     );
   }
