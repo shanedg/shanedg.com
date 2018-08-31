@@ -3,18 +3,12 @@
   bottom: 0;
   transition: bottom 250ms ease-out;
   width: 100%;
-  /* box-sizing: border-box; */
-
+  background-color: #fff;
+  border-top: 1px solid #000;
 }
 
 .consent-toaster {
-  background-color: #fff;
-  border-top: 1px solid #000;
-  /* position: fixed; */
-  /* bottom: 0; */
   padding: 0.5rem;
-  /* transition: bottom 250ms ease-out; */
-  /* width: 100%; */
   box-sizing: border-box;
   font-size: 0.75rem;
 }
@@ -25,6 +19,8 @@
     align-items: center;
     justify-content: space-around;
     padding: 0.5rem 1.75rem 0.5rem 0.5rem;
+    max-width: 768px;
+    margin: 0 auto;
   }
 }
 
@@ -32,17 +28,10 @@
   margin: 0;
 }
 
-@media (min-width: 768px) {
-  p {
-    flex-basis: 60%;
-  }
-}
-
 .consent-toaster .dismiss-toaster {
   position: absolute;
   top: -1.5rem;
   right: 0.5rem;
-  /* background-color: #eee; */
   background-color: #fff;
 
   padding: 0.125rem 0.35rem;
@@ -62,20 +51,7 @@
   color: #fff;
 }
 
-.consent-toaster .consent-options {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-@media (min-width: 768px) {
-  .consent-toaster .consent-options {
-    flex-basis: 38%;
-  }
-}
-
-.consent-toaster .consent-options .span {
+.consent-toaster .span {
   display: flex;
   flex-basis: 48%;
   margin: 0.5rem 0 0;
@@ -83,21 +59,21 @@
 }
 
 @media (min-width: 768px) {
-  .consent-toaster .consent-options .span {
+  .consent-toaster .span {
     margin: 0;
   }
 }
 
-.consent-toaster .consent-options .span .aside a {
+.consent-toaster .span .aside a {
   line-height: 2.1;
   padding: 0.3rem;
 }
 
-.consent-toaster .consent-options .span.consent-choice {
+.consent-toaster .span.consent-choice {
   justify-content: space-between;
 }
 
-.consent-toaster .consent-options .consent-choice .button {
+.consent-toaster .consent-choice .button {
   padding: 0.5rem 1.25rem;
   border: 1px solid #ddd;
   border-radius: 2px;
@@ -108,7 +84,7 @@
   text-transform: uppercase;
 }
 
-.consent-toaster .consent-options .consent-choice .button:hover {
+.consent-toaster .consent-choice .button:hover {
   background-color: #5ccdec;
   color: #fff;
 }
