@@ -1,9 +1,7 @@
 .App-inner {
-  padding: 1rem 0;
-  
+  padding: 0 0 1rem;
   transition: padding 500ms ease-out;
   position: relative;
-
   display: block;
   margin: 0 auto;
   box-sizing: border-box;
@@ -13,6 +11,7 @@
 .App a {
   transition: background-color 250ms ease-out, color 250ms ease-out;
   padding: 0 0.3rem;
+  background-color: #000;
 }
 
 .App a[target="_blank"] {
@@ -21,13 +20,14 @@
 }
 
 .App a[href*="mailto:"] {
-  background-color: orange;
+  /* background-color: orange; */
+  /* background-color: #dc9c4f; */
   color: #fff;
-  
 }
 
 .App a:hover {
-  background-color: #5ccdec;
+  /* background: #dc9c4f; */
+  background-color: #B06B19;
   color: #fff;
 }
 
@@ -49,3 +49,7 @@
     max-width: 768px;
   }
 }
+
+/* rgb(210, 155, 55), hex: d29b37 <- fun yellow
+ * rgb(55, 110, 140), hex: 376e8c <- fun blue
+ */

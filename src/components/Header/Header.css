@@ -1,11 +1,16 @@
 .header {
   position: relative;
-  padding: 0 1rem;
+  padding: 1rem;
+  background: #dc9c4f;
 }
 
 .header .h1 {
   position: relative;
   z-index: 1;
+  padding: 0 0.25rem;
+  /* background: #B06B19; */
+  background: #CE8630;
+  margin: 1rem 1.5rem 1rem 0;
 }
 
 .header .portrait {
@@ -19,26 +24,22 @@
   max-width: 35%;
   border-radius: 50%;
   overflow: hidden;
-  border: 1px solid;
-  box-shadow: -1px 3px 5px 1px rgba(0, 0, 0, 0.2)
-
-  /* img background hex ~ #5CCDEC */
+  box-shadow: -1px 3px 5px 1px rgba(0, 0, 0, 0.2);
+  z-index: 100;;
 }
 
 .header .blurb {
   position: relative;
   max-width: 65%;
+  padding: 0.25rem;
+  /* background: #CE8630; */
+  background: #B06B19;
+  margin: 1rem 0 0.5rem;
 }
 
 @media (min-width: 768px) {
-  /* .header {
-    display: flex;
-    flex-wrap: wrap;
-    position: static;
-  }
-
   .header .portrait img {
-    position: static;
-    max-width: 20%;
-  } */
+    max-width: 25%;
+    right: -1rem;
+  }
 }

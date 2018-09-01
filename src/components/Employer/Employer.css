@@ -29,14 +29,16 @@
 .employer .role-body .role-heading .toggle-role-details {
   border: none;
   padding: 0.125rem 0.35rem;
-  background-color: #eee;
+  /* background-color: #eee; */
+  background: #dc9c4f;
   font-weight: bold;
+  color: white;
 
   transition: background-color 250ms ease-out, color 250ms ease-out;
 }
 
 .employer .role-body .role-heading .toggle-role-details:hover {
-  background-color: #5ccdec;
+  background-color: #B06B19;
   color: #fff;
 }
 

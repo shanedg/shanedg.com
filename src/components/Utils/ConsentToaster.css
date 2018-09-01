@@ -3,8 +3,9 @@
   bottom: 0;
   transition: bottom 250ms ease-out;
   width: 100%;
-  background-color: #fff;
-  border-top: 1px solid #000;
+  /* background-color: #fff; */
+  background: #dc9c4f;
+  /* border-top: 1px solid #000; */
 }
 
 .consent-toaster {
@@ -12,6 +13,10 @@
   box-sizing: border-box;
   font-size: 0.75rem;
 }
+
+/* .consent-toaster a:hover {
+  background-color: #B06B19;
+} */
 
 @media (min-width: 768px) {
   .consent-toaster {
@@ -47,7 +52,7 @@
 }
 
 .consent-toaster .dismiss-toaster:hover {
-  background-color: #5ccdec;
+  background-color: #B06B19;
   color: #fff;
 }
 
@@ -64,29 +69,27 @@
   }
 }
 
-.consent-toaster .span .aside a {
-  line-height: 2.1;
-  padding: 0.3rem;
-}
-
 .consent-toaster .span.consent-choice {
   justify-content: space-between;
 }
 
 .consent-toaster .consent-choice .button {
+  background: white;
   padding: 0.5rem 1.25rem;
-  border: 1px solid #ddd;
+  border: 0;
   border-radius: 2px;
-  box-shadow: 2px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.1);
   display: inline-block;
   width: 48%;
-  transition: background-color 250ms ease-out, color 250ms ease-out;
+  transition: background-color 250ms ease-out, color 250ms ease-out, box-shadow 250ms ease-out;
   text-transform: uppercase;
 }
 
 .consent-toaster .consent-choice .button:hover {
-  background-color: #5ccdec;
+  background: #B06B19;
   color: #fff;
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.2);
+
 }
 
 /* MOUNT / UNMOUNT ANIMATIONS

@@ -19,20 +19,18 @@ class Employer extends Component {
   toggleRoleDetails() {
     this.setState((prevState) => {
 
-      // return ({
-      //   open: !prevState.open
-      // })
-
       if (prevState.items.length > 0) {
         return ({
-          items: []
+          items: [],
+          open: false
         });
       } else {
         return ({
           items: [{
             key: 'responsibilities',
             size: 1000
-          }]
+          }],
+          open: true
         })
       }
 
@@ -76,9 +74,10 @@ class Employer extends Component {
   render() {
     return (
       <section className="section employer">
-        <h3 className="h3 employer-name">{this.props.jobDetails.employerName}</h3>
-        
-        <SimpleDateRange dates={this.props.jobDetails.dates} />
+        <div className="employer-heading">
+          <h3 className="h3 employer-name">{this.props.jobDetails.employerName}</h3>
+          <SimpleDateRange dates={this.props.jobDetails.dates} />
+        </div>
         
         <div className="role-body">
           <span className="role-heading">
