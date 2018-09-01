@@ -8,6 +8,11 @@
   padding: 0 0 1rem 0;
 }
 
+.employer .employer-heading {
+  background: #202020;
+  padding: 0 0.25rem;
+}
+
 .employer .employer-name {
   margin: 1rem 0 0;
 }
@@ -19,6 +24,9 @@
 .employer .role-body .role-heading {
   display: flex;
   align-items: baseline;
+
+  background: #202020;
+  padding: 0 0.25rem;
 }
 
 .employer .role-body .role-heading :nth-child(1) {
