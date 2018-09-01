@@ -1,3 +1,8 @@
 .footer p {
   line-height: 1.5;
 }
+
+.footer iframe {
+  vertical-align: middle;
+  margin: 0 1rem 0;
+}
