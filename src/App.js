@@ -7,6 +7,13 @@ import Employer from './components/Employer/Employer';
 import Footer from './components/Footer/Footer';
 import ConsentToaster from './components/Utils/ConsentToaster';
 
+// highlight.js imports for syntax highlighting of javascript in html
+import hljs from 'highlight.js/lib/highlight';
+import javascript from 'highlight.js/lib/languages/javascript';
+import 'highlight.js/styles/default.css';
+
+hljs.registerLanguage('javascript', javascript);
+
 class App extends Component {
 
   constructor(props) {
@@ -34,6 +41,9 @@ class App extends Component {
         });
       }
     }, 0);
+
+    // init client-side syntax highlighting when component mounts
+    hljs.initHighlighting();
   }
 
   consentHandler(e) {
@@ -107,6 +117,17 @@ class App extends Component {
             {work.map((job, index) => {
               return <Employer key={index} jobDetails={job} />
             })}
+
+            {/* some syntax to be highlighted */}
+            <pre><code>
+            let priorConsent = false;
+            <br />
+            if (cookieConsent !== undefined) &#123;
+            <br />
+            &nbsp;&nbsp;console.log('bish');
+            <br />
+            &#125;
+            </code></pre>
 
           </article>
           <Footer />
