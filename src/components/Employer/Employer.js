@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import { StaggeredMotion, spring, presets } from 'react-motion';
 import { TransitionMotion, StaggeredMotion, spring, presets } from 'react-motion';
 import range from 'lodash.range';
 
@@ -30,14 +29,6 @@ class Employer extends Component {
         });
       } else {
         return ({
-          // items: [{
-          //   key: 'responsibilities',
-          //   size: 500
-          // }, {
-          //   key: 'projects',
-          //   size: 500
-          // }]
-
           items: [{
             key: 'responsibilities',
             size: 1000
