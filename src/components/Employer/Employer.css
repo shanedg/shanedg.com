@@ -9,8 +9,10 @@
 }
 
 .employer .employer-heading {
-  background: #202020;
+  /* background: #202020; */
+  /* background: white; */
   padding: 0 0.25rem;
+  color: #202020;
 }
 
 .employer .employer-name {
@@ -25,8 +27,10 @@
   display: flex;
   align-items: baseline;
 
-  background: #202020;
-  padding: 0 0.25rem;
+  /* background: #202020; */
+  /* background: white; */
+  /* padding: 0 0.25rem; */
+  color: #202020;
 }
 
 .employer .role-body .role-heading :nth-child(1) {
@@ -38,7 +42,8 @@
   border: none;
   padding: 0.125rem 0.35rem;
   /* background-color: #eee; */
-  background: #dc9c4f;
+  /* background: #dc9c4f; */
+  background: #202020;
   font-weight: bold;
   color: white;
 

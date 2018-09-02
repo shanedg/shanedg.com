@@ -1,17 +1,16 @@
 .header {
   position: relative;
   padding: 1rem;
-  background: #dc9c4f;
+  background: #376e8c;
 }
 
 .header .h1 {
   position: relative;
   z-index: 1;
   padding: 0 0.25rem;
-  /* background: #B06B19; */
-  /* background: #CE8630; */
   background: #202020;
   margin: 1rem 1.5rem 1rem 0;
+  color: white;
 }
 
 .header .portrait {
@@ -33,10 +32,9 @@
   position: relative;
   max-width: 65%;
   padding: 0.25rem;
-  /* background: #CE8630; */
-  /* background: #B06B19; */
-  background: #202020;
   margin: 1rem 0 0.5rem;
+  background: white;
+  color: #202020;
 }
 
 @media (min-width: 768px) {

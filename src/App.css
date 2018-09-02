@@ -22,13 +22,10 @@
 }
 
 .App a[href*="mailto:"] {
-  /* background-color: orange; */
-  /* background-color: #dc9c4f; */
   color: #fff;
 }
 
 .App a:hover {
-  /* background: #dc9c4f; */
   background-color: #B06B19;
   color: #fff;
 }
@@ -38,8 +35,10 @@
 }
 
 .App .work .h2 {
-  background: #202020;
+  background: #376e8c;
   padding: 0 0.25rem;
+  color: white;
+  
 }
 
 .App .footer {
@@ -60,7 +59,3 @@
     margin: 1rem 2rem 1rem 0;
   }
 }
-
-/* rgb(210, 155, 55), hex: d29b37 <- fun yellow
- * rgb(55, 110, 140), hex: 376e8c <- fun blue
- */

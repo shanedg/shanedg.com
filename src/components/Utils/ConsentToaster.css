@@ -1,11 +1,10 @@
 .consent-toaster-wrap {
   position: fixed;
   bottom: 0;
-  transition: bottom 250ms ease-out;
+  transition: bottom 50ms ease-out;
   width: 100%;
-  /* background-color: #fff; */
-  background: #dc9c4f;
-  /* border-top: 1px solid #000; */
+  background: #376e8c;
+  color: white;
 }
 
 .consent-toaster {
@@ -36,11 +35,11 @@
 
 .consent-toaster .dismiss-toaster {
   position: absolute;
-  top: -1.5rem;
+  top: -0.95rem;
   right: 0.5rem;
   background-color: #fff;
 
-  padding: 0.125rem 0.35rem;
+  padding: 0.25rem 0.45rem;
   border: 0;
   font-weight: bold;
   transition: background-color 250ms ease-out, color 250ms ease-out;
@@ -48,7 +47,7 @@
 
 @media (min-width: 768px) {
   .consent-toaster .dismiss-toaster {
-    top: 0.85rem;
+    top: 0.73rem;
   }
 }
 
@@ -87,14 +86,14 @@
 }
 
 .consent-toaster .consent-choice .button:hover {
-  background: #B06B19;
+  background: #77A1B7;
   color: #fff;
   box-shadow: 2px 2px rgba(0, 0, 0, 0.2);
 
 }
 
-/* MOUNT / UNMOUNT ANIMATIONS
- * powered by `ReactCSSTransitionGroup`
+/* 
+ * ReactCSSTransitionGroup Mount & Unmount
  */
 .consent-toaster-appear {
   bottom: -50vh;
