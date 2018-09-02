@@ -8,6 +8,13 @@
   padding: 0 0 1rem 0;
 }
 
+.employer .employer-heading {
+  /* background: #202020; */
+  /* background: white; */
+  padding: 0 0.25rem;
+  color: #202020;
+}
+
 .employer .employer-name {
   margin: 1rem 0 0;
 }
@@ -19,6 +26,11 @@
 .employer .role-body .role-heading {
   display: flex;
   align-items: baseline;
+
+  /* background: #202020; */
+  /* background: white; */
+  /* padding: 0 0.25rem; */
+  color: #202020;
 }
 
 .employer .role-body .role-heading :nth-child(1) {
@@ -29,14 +41,17 @@
 .employer .role-body .role-heading .toggle-role-details {
   border: none;
   padding: 0.125rem 0.35rem;
-  background-color: #eee;
+  /* background-color: #eee; */
+  /* background: #dc9c4f; */
+  background: #202020;
   font-weight: bold;
+  color: white;
 
   transition: background-color 250ms ease-out, color 250ms ease-out;
 }
 
 .employer .role-body .role-heading .toggle-role-details:hover {
-  background-color: #5ccdec;
+  background-color: #B06B19;
   color: #fff;
 }
 

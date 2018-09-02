@@ -24,7 +24,7 @@ class ConsentToaster extends Component {
     return (
       <div className="consent-toaster-wrap">
         <div className="consent-toaster" ref={this.toasterDOM}>
-          <p>This site may use Cookies. Do you consent to allowing this site to store Cookies on your device/browser? <a href="https://en.wikipedia.org/wiki/HTTP_cookie" target="_blank" rel="noopener noreferrer">More about Cookies</a></p>
+          <p>This site uses <a href="https://en.wikipedia.org/wiki/HTTP_cookie" target="_blank" rel="noopener noreferrer" title="read more about 'Cookies'">Cookies</a>; do you consent to allowing this site to store Cookies on your device/browser?</p>
           <span className="span consent-choice">
             <button className="button" id="cookie-consent-yes" onClick={this.props.consentHandler}>Yes</button>
             <button className="button" id="cookie-consent-no" onClick={this.props.consentHandler}>No</button>

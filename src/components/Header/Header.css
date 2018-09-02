@@ -1,11 +1,16 @@
 .header {
   position: relative;
-  padding: 0 1rem;
+  padding: 1rem;
+  background: #376e8c;
 }
 
 .header .h1 {
   position: relative;
   z-index: 1;
+  padding: 0 0.25rem;
+  background: #202020;
+  margin: 1rem 1.5rem 1rem 0;
+  color: white;
 }
 
 .header .portrait {
@@ -19,26 +24,22 @@
   max-width: 35%;
   border-radius: 50%;
   overflow: hidden;
-  border: 1px solid;
-  box-shadow: -1px 3px 5px 1px rgba(0, 0, 0, 0.2)
-
-  /* img background hex ~ #5CCDEC */
+  box-shadow: -1px 3px 5px 1px rgba(0, 0, 0, 0.2);
+  z-index: 100;;
 }
 
 .header .blurb {
   position: relative;
   max-width: 65%;
+  padding: 0.25rem;
+  margin: 1rem 0 0.5rem;
+  background: white;
+  color: #202020;
 }
 
 @media (min-width: 768px) {
-  /* .header {
-    display: flex;
-    flex-wrap: wrap;
-    position: static;
-  }
-
   .header .portrait img {
-    position: static;
-    max-width: 20%;
-  } */
+    max-width: 25%;
+    right: -1rem;
+  }
 }

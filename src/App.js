@@ -98,7 +98,6 @@ class App extends Component {
         style={this.state.extraPadding}
         >
         <div className="App-inner"
-          // style={this.state.extraPadding}
           >
           <Header />
           <article className="article work">
