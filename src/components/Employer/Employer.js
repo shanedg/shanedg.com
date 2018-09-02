@@ -81,7 +81,7 @@ class Employer extends Component {
         
         <div className="role-body">
           <span className="role-heading">
-            <button className="button toggle-role-details" onClick={this.toggleRoleDetails}>{this.state.open ? '<' : '>'}</button>
+            <button className="button toggle-role-details" onClick={this.toggleRoleDetails}>{this.state.open ? '<' : '>'}</button>&nbsp;
             <h4 className="h4 role-title">{this.props.jobDetails.roleTitle}</h4>
           </span>
 
