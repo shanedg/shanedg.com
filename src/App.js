@@ -7,7 +7,12 @@ import Work from './components/Work/Work';
 import Footer from './components/Footer/Footer';
 import ConsentToaster from './components/Utils/ConsentToaster';
 
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom';
 
 class App extends Component {
 
@@ -75,25 +80,30 @@ class App extends Component {
 
     return (
       <div className="App" style={this.state.extraPadding}>
+
         <div className="App-inner">
           <Header />
-          
           <Router>
             <div>
-              <ul>
-                <li>
-                  <Link to="/">Home</Link>
-                </li>
-                <li>
-                  <Link to="/work">Work</Link>
-                </li>
-              </ul>
-              <Route exact path="/" component={null} />
-              <Route path="/work" component={Work} />
+              <nav>
+                <ul>
+                  <li>
+                    <Link to="/">Home</Link>
+                  </li>
+                  <li>
+                    <Link to="/work">Work</Link>
+                  </li>
+                </ul>
+              </nav>
+              <Switch>
+                <Route exact path="/" component={null} />
+                <Route path="/work" component={Work} />
+              </Switch>
             </div>
           </Router>
           <Footer />
         </div>
+
         <ReactCSSTransitionGroup
           transitionName="consent-toaster"
           transitionAppear={true}
