@@ -4,6 +4,7 @@ import Cookies from 'js-cookie';
 import './App.css';
 import Header from './components/Header/Header';
 import Work from './components/Work/Work';
+import Preferences from './components/Preferences/Preferences';
 import Footer from './components/Footer/Footer';
 import ConsentToaster from './components/Utils/ConsentToaster';
 
@@ -27,6 +28,7 @@ class App extends Component {
 
     this.toasterRef = React.createRef();
 
+    this.updateConsent = this.updateConsent.bind(this);
     this.consentHandler = this.consentHandler.bind(this);
     this.dismissHandler = this.dismissHandler.bind(this);
   }
@@ -43,6 +45,16 @@ class App extends Component {
     }, 0);
   }
 
+  updateConsent(isGranted) {
+    this.setState({
+      consent: {
+        priorConsent: true,
+        consentGranted: isGranted
+      }
+    });
+    Cookies.set('cookie_consent', isGranted ? 'true' : 'false');
+  }
+
   consentHandler(e) {
     let consented = false;
     if (e.currentTarget.id === 'cookie-consent-yes') {
@@ -51,6 +63,11 @@ class App extends Component {
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
         'event': 'cookie_consent_granted'
+      });
+    } else {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        'event': 'cookie_consent_denied'
       });
     }
 
@@ -93,11 +110,17 @@ class App extends Component {
                   <li>
                     <Link to="/work">Work</Link>
                   </li>
+                  <li>
+                    <Link to="/preferences">Preferences</Link>
+                  </li>
                 </ul>
               </nav>
               <Switch>
                 <Route exact path="/" component={null} />
                 <Route path="/work" component={Work} />
+                <Route path="/preferences" render={(props) => (
+                  <Preferences {...props} consent={this.state.consent} updateConsent={this.updateConsent} />
+                )} />
               </Switch>
             </div>
           </Router>
