@@ -37,7 +37,7 @@
   color: #202020;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   .header .portrait img {
     max-width: 25%;
     right: -1rem;
