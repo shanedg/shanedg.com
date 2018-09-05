@@ -12,22 +12,14 @@
 .App a:visited {
   transition: background-color 250ms ease-out, color 250ms ease-out;
   padding: 0 0.3rem;
-  background-color: #000;
+  background: #202020;
   color: white;
-}
-
-.App a[target="_blank"] {
-  background-color: #000;
-  color: #fff;
-}
-
-.App a[href*="mailto:"] {
-  color: #fff;
+  border-radius: 1px;
 }
 
 .App a:hover {
-  background-color: #B06B19;
-  color: #fff;
+  background: white;
+  color: #202020;
 }
 
 .App nav ul {
@@ -44,8 +36,4 @@
     overflow: visible;
     max-width: 768px;
   }
-
-  /* .App .work .h2 {
-    margin: 1rem 2rem 1rem 0;
-  } */
 }

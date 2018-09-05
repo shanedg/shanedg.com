@@ -37,15 +37,23 @@
 .employer .role-body .role-heading .toggle-role-details {
   border: none;
   padding: 0.25rem 0.45rem;
-  background: white;
   font-weight: bold;
+  background: white;
   color: #202020;
+  border-radius: 1px;
+  border: 2px solid #202020;
   transition: background-color 250ms ease-out, color 250ms ease-out;
 }
 
-.employer .role-body .role-heading .toggle-role-details:hover {
-  background-color: #B06B19;
+.employer .role-body .role-heading .toggle-role-details:hover,
+.employer .role-body .role-heading .toggle-role-details.toggle-open {
+  background-color: #202020;
   color: #fff;
+}
+
+.employer .role-body .role-heading .toggle-role-details.toggle-open:hover {
+  background: white;
+  color: #202020;
 }
 
 .employer .role-body .role-heading .role-title {

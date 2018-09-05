@@ -7,3 +7,8 @@
   padding: 0 0.25rem;
   color: white;
 }
+
+.preferences input[type="checkbox"] {
+  vertical-align: middle;
+  margin: 0 0.5ex;
+}

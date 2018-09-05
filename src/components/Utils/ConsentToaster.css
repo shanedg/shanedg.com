@@ -35,25 +35,26 @@
 
 .consent-toaster .dismiss-toaster {
   position: absolute;
-  top: -0.95rem;
+  top: -1.125rem;
   right: 0.5rem;
-  background-color: #fff;
-
+  background: white;
+  color: #202020;
+  border-radius: 1px;
+  border: 2px solid #202020;
   padding: 0.25rem 0.45rem;
-  border: 0;
   font-weight: bold;
   transition: background-color 250ms ease-out, color 250ms ease-out;
 }
 
 @media (min-width: 768px) {
   .consent-toaster .dismiss-toaster {
-    top: 0.73rem;
+    top: 0.65rem;
   }
 }
 
 .consent-toaster .dismiss-toaster:hover {
-  background-color: #B06B19;
-  color: #fff;
+  background: #202020;
+  color: white;
 }
 
 .consent-toaster .span {
@@ -76,20 +77,19 @@
 .consent-toaster .consent-choice .button {
   background: white;
   padding: 0.25rem 1.125rem;
-  border: 0;
-  border-radius: 2px;
+  border-radius: 1px;
+  border: 2px solid #202020;
   box-shadow: 2px 2px rgba(0, 0, 0, 0.1);
   display: inline-block;
   width: 48%;
-  transition: background-color 250ms ease-out, color 250ms ease-out, box-shadow 250ms ease-out;
+  transition: background-color 450ms ease-out, color 550ms ease-out, box-shadow 450ms ease-out;
   text-transform: uppercase;
 }
 
 .consent-toaster .consent-choice .button:hover {
-  background: #77A1B7;
+  background: #202020;
   color: #fff;
-  box-shadow: 2px 2px rgba(0, 0, 0, 0.2);
-
+  box-shadow: 2px 3px rgba(0, 0, 0, 0.2);
 }
 
 /* 
