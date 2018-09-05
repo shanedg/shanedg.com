@@ -41,9 +41,15 @@
   color: #202020;
   border-radius: 1px;
   border: 2px solid #202020;
-  padding: 0.25rem 0.45rem;
+  padding: 0.125rem;
   font-weight: bold;
   transition: background-color 250ms ease-out, color 250ms ease-out;
+}
+
+.consent-toaster .dismiss-toaster > span {
+  display: block;
+  width: 1rem;
+  height: 1rem;
 }
 
 @media (min-width: 768px) {

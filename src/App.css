@@ -25,6 +25,7 @@
 .App nav ul {
   list-style: none;
   display: flex;
+  margin: 1rem 0;
 }
 
 .App .button {

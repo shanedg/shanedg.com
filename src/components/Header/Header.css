@@ -40,6 +40,6 @@
 @media (min-width: 550px) {
   .header .portrait img {
     max-width: 25%;
-    right: -1rem;
+    right: -1.25rem;
   }
 }

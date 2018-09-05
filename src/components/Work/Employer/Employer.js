@@ -73,7 +73,7 @@ class Employer extends Component {
 
   render() {
     return (
-      <section className="section employer">
+      <section className="Employer">
         <div className="employer-heading">
           <h3 className="h3 employer-name">{this.props.jobDetails.employerName}</h3>
           <SimpleDateRange dates={this.props.jobDetails.dates} />
@@ -81,7 +81,12 @@ class Employer extends Component {
         
         <div className="role-body">
           <span className="role-heading">
-            <button className={`button toggle-role-details${this.state.open ? ' toggle-open' : ''}`} onClick={this.toggleRoleDetails}>{this.state.open ? '<' : '>'}</button>&nbsp;
+            <button className={`button toggle-role-details${this.state.open ? ' toggle-open' : ''}`} onClick={this.toggleRoleDetails}>
+              <span>
+              {/* {this.state.open ? '<' : '>'} */}
+                +
+              </span>
+            </button>&nbsp;
             <h4 className="h4 role-title">{this.props.jobDetails.roleTitle}</h4>
           </span>
 
