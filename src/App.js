@@ -8,6 +8,8 @@ import Preferences from './components/Preferences/Preferences';
 import Footer from './components/Footer/Footer';
 import ConsentToaster from './components/Utils/ConsentToaster';
 
+import Snippet from './components/Snippet/Snippet';
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -124,6 +126,7 @@ class App extends Component {
               </Switch>
             </div>
           </Router>
+          <Snippet />
           <Footer />
         </div>
 
