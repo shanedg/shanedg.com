@@ -29,7 +29,9 @@ class ConsentToaster extends Component {
             <button className="button" id="cookie-consent-yes" onClick={this.props.consentHandler}>Yes</button>
             <button className="button" id="cookie-consent-no" onClick={this.props.consentHandler}>No</button>
           </span>
-          <button className="button dismiss-toaster" id="dismiss-consent-toaster" onClick={this.props.dismissHandler}>X</button>
+          <button className="button dismiss-toaster" id="dismiss-consent-toaster" onClick={this.props.dismissHandler}>
+            <span>X</span>
+          </button>
         </div>
       </div>
     );

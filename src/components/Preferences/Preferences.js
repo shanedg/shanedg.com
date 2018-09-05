@@ -20,21 +20,22 @@ class Preferences extends Component {
   render() {
 
     return (
-      <article className="article preferences">
+      <section className="Preferences">
         <h2 className="h2">preferences</h2>
+      
+        <div className="options">
+          <label htmlFor="cookies-opt-in">Opt in to this site's cookies:</label>
+          <input type="checkbox" name="cookies-opt-in" id="cookies-opt-in" onChange={this.consentToggle} checked={this.props.consent.consentGranted} />
 
-        <label htmlFor="cookies-opt-in">Opt in to this site's cookies:</label>
-        <input type="checkbox" name="cookies-opt-in" id="cookies-opt-in" onChange={this.consentToggle} checked={this.props.consent.consentGranted} />
-
-        {this.props.consent.alreadyAsked &&
-          (
-            this.props.consent.consentGranted ?
-            <p><strong>You're opted-in to cookies.</strong></p> :
-            <p><strong>You're opted-out of cookies.</strong></p>
-          )
-        }
-        
-      </article>
+          {this.props.consent.priorConsent &&
+            (
+              this.props.consent.consentGranted ?
+              <p><strong>You're opted-in to cookies.</strong></p> :
+              <p><strong>You're opted-out of cookies.</strong></p>
+            )
+          }
+        </div>
+      </section>
     );
   }
 }

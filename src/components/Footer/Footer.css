@@ -1,18 +1,24 @@
-.footer {
+.Footer {
   padding: 0 1rem;
 }
 
-.footer h2,
-.footer h3 {
-  padding: 0 0.25rem;
-  background: #376e8c;
-  color: white;
+.Footer .section {
+  margin: 0 0 4rem;
 }
 
-.footer p {
+.Footer h2 {
+  padding: 0.125rem 0.5rem;
+  background: #376e8c;
+  color: white;
+  margin: 1rem 0;
+}
+
+.Footer p {
+  padding: 0 0 0 0.5rem;
+
   line-height: 1.5;
 }
 
-.footer iframe {
+.Footer iframe {
   vertical-align: middle;
 }
