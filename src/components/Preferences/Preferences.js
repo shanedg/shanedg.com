@@ -26,7 +26,7 @@ class Preferences extends Component {
         <label htmlFor="cookies-opt-in">Opt in to this site's cookies:</label>
         <input type="checkbox" name="cookies-opt-in" id="cookies-opt-in" onChange={this.consentToggle} checked={this.props.consent.consentGranted} />
 
-        {this.props.consent.priorConsent &&
+        {this.props.consent.alreadyAsked &&
           (
             this.props.consent.consentGranted ?
             <p><strong>You're opted-in to cookies.</strong></p> :

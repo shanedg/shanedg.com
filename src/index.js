@@ -5,17 +5,17 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import Cookies from 'js-cookie';
 
-const cookieConsent = Cookies.get('cookie_consent');
-let priorConsent = false;
-if (cookieConsent !== undefined) {
-  priorConsent = true;
+const cookieConsentValue = Cookies.get('cookie_consent');
+let alreadyAsked = false;
+if (cookieConsentValue !== undefined) {
+  alreadyAsked = true;
 } else {
-  priorConsent = false;
+  alreadyAsked = false;
 }
 
 const consent = {
-  priorConsent: priorConsent,
-  consentGranted: priorConsent ? cookieConsent === 'true' : false
+  alreadyAsked: alreadyAsked,
+  consentGranted: alreadyAsked ? cookieConsentValue === 'true' : false
 };
 
 ReactDOM.render(<App consent={consent} />, document.getElementById('root'));
