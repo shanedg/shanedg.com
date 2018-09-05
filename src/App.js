@@ -35,7 +35,7 @@ class App extends Component {
 
   componentDidMount() {
     setTimeout(() => {
-      if (!this.state.consent.priorConsent) {
+      if (!this.state.consent.alreadyAsked) {
         this.setState({
           extraPadding: {
             paddingBottom: this.toasterRef.current.state.height + 'px'
@@ -48,7 +48,7 @@ class App extends Component {
   updateConsent(isGranted) {
     this.setState({
       consent: {
-        priorConsent: true,
+        alreadyAsked: true,
         consentGranted: isGranted
       }
     });
@@ -73,7 +73,7 @@ class App extends Component {
 
     this.setState({
       consent: {
-        priorConsent: true,
+        alreadyAsked: true,
         consentGranted: consented
       },
       extraPadding: {}
@@ -85,7 +85,7 @@ class App extends Component {
     if (e.currentTarget.id === 'dismiss-consent-toaster') {
       this.setState({
         consent: {
-          priorConsent: true,
+          alreadyAsked: true,
           consentGranted: false
         },
         extraPadding: {}
@@ -134,7 +134,7 @@ class App extends Component {
           transitionEnter={false}
           transitionLeaveTimeout={500}>
           {this.state.consent &&
-            !this.state.consent.priorConsent &&
+            !this.state.consent.alreadyAsked &&
             <ConsentToaster ref={this.toasterRef} key={'consent-toaster'} consentHandler={this.consentHandler} dismissHandler={this.dismissHandler} />
           }
         </ReactCSSTransitionGroup>
