@@ -22,7 +22,7 @@ class Preferences extends Component {
     return (
       <section className="Preferences">
         <h2 className="h2">preferences</h2>
-
+      
         <div className="options">
           <label htmlFor="cookies-opt-in">Opt in to this site's cookies:</label>
           <input type="checkbox" name="cookies-opt-in" id="cookies-opt-in" onChange={this.consentToggle} checked={this.props.consent.consentGranted} />
