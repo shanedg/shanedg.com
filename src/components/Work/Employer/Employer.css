@@ -1,4 +1,8 @@
 .Employer {
+  margin: 0;
+}
+
+.Employer:last-child {
   margin: 0 0 4rem;
 }
 
@@ -40,20 +44,17 @@
 
 .Employer .role-body .role-heading .toggle-role-details {
   border: none;
-  padding: 0.125rem;
   font-weight: bold;
   background: white;
   color: #202020;
   border-radius: 1px;
-  border: 2px solid #202020;
   transition: background-color 250ms ease-out, color 250ms ease-out;
-  animation: toggle-hint 400ms ease-in 500ms 2;
+  animation: toggle-hint 1250ms ease-in 0ms 1;
 }
 
 .Employer .role-body .role-heading .toggle-role-details > span {
   display: block;
   width: 1rem;
-  height: 1rem;
 }
 
 .Employer .role-body .role-heading .toggle-role-details:hover,
@@ -72,22 +73,25 @@
     background: #fff;
     color: #202020;
   }
-  25% {
+  15% {
     background: #202020;
     color: white;
   }
-  50% {
-    /* background: #202020;
-    color: white; */
+  30% {
+    background: #fff;
+    color: #202020;
   }
-  75% {
-    /* background: #202020;
-    color: white; */
+  45% {
+    background: #202020;
+    color: white;
+  }
+  70% {
+    background: #fff;
+    color: #202020;
   }
   100% {
     background: #fff;
     color: #202020;
-
   }
 }
 

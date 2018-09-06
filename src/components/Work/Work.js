@@ -50,7 +50,7 @@ class Work extends Component {
         <h2 className="h2">work</h2>
 
         {work.map((job, index) => {
-          return <Employer key={index} jobDetails={job} />
+          return <Employer key={index} jobDetails={job} order={index} />
         })}
 
       </article>
