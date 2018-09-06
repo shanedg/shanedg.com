@@ -81,10 +81,11 @@ class Employer extends Component {
         
         <div className="role-body">
           <span className="role-heading">
-            <button className={`button toggle-role-details${this.state.open ? ' toggle-open' : ''}`} onClick={this.toggleRoleDetails}>
+            <button className={`button toggle-role-details${this.state.open ? ' toggle-open' : ''}`} onClick={this.toggleRoleDetails} style={{
+              animationDelay: (500 + (this.props.order * 1050)) + 'ms'
+              }}>
               <span>
-              {/* {this.state.open ? '<' : '>'} */}
-                +
+                {this.state.open ? '-' : '+'}
               </span>
             </button>&nbsp;
             <h4 className="h4 role-title">{this.props.jobDetails.roleTitle}</h4>

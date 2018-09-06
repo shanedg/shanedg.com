@@ -131,7 +131,7 @@ class App extends Component {
         </div>
 
         <ReactCSSTransitionGroup
-          transitionName="consent-toaster"
+          transitionName="toaster"
           transitionAppear={true}
           transitionAppearTimeout={500}
           transitionEnter={false}

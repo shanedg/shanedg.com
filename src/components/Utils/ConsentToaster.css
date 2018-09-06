@@ -1,4 +1,4 @@
-.consent-toaster-wrap {
+.Consent-Toaster {
   position: fixed;
   bottom: 0;
   transition: bottom 50ms ease-out;
@@ -7,92 +7,84 @@
   color: white;
 }
 
-.consent-toaster {
+.Consent-Toaster .toaster-body {
   padding: 0.5rem;
   box-sizing: border-box;
   font-size: 0.75rem;
 }
 
 @media (min-width: 768px) {
-  .consent-toaster {
+  .Consent-Toaster .toaster-body {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    padding: 0.5rem 1.75rem 0.5rem 0.5rem;
+    padding: 0.5rem;
     max-width: 768px;
     margin: 0 auto;
   }
 }
 
-.consent-toaster p {
-  margin: 0;
+.Consent-Toaster .toaster-body p {
+  margin: 0 auto;
+  text-align: justify;
 }
 
-.consent-toaster iframe {
+@media (min-width: 768px) {
+  .Consent-Toaster .toaster-body p {
+    text-align: left;
+  }
+}
+
+.Consent-Toaster .toaster-body iframe {
   vertical-align: middle;
   margin: 0 1rem 0;
 }
 
-.consent-toaster .dismiss-toaster {
-  position: absolute;
-  top: -1.125rem;
-  right: 0.5rem;
-  background: white;
-  color: #202020;
-  border-radius: 1px;
-  border: 2px solid #202020;
-  padding: 0.125rem;
-  font-weight: bold;
-  transition: background-color 250ms ease-out, color 250ms ease-out;
-}
-
-.consent-toaster .dismiss-toaster > span {
-  display: block;
-  width: 1rem;
-  height: 1rem;
-}
-
-@media (min-width: 768px) {
-  .consent-toaster .dismiss-toaster {
-    top: 0.65rem;
-  }
-}
-
-.consent-toaster .dismiss-toaster:hover {
-  background: #202020;
+.Consent-Toaster .dismiss-toaster {
+  border: 0;
   color: white;
+  background: #376e8c;
+  cursor: pointer;
+  position: absolute;
+  top: -1.25rem;
+  left: 1rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 1px;
+  font-weight: bold;
 }
 
-.consent-toaster .span {
+.Consent-Toaster .dismiss-toaster:hover {
+  color: #202020;
+}
+
+.Consent-Toaster .toaster-body .consent-choice {
   display: flex;
   flex-basis: 48%;
-  margin: 0.5rem 0 0;
-  justify-content: center;
+  margin: 0.5rem auto 0;
+  justify-content: space-between;
+  align-items: center;
 }
 
 @media (min-width: 768px) {
-  .consent-toaster .span {
+  .Consent-Toaster .toaster-body .consent-choice {
     margin: 0;
   }
 }
 
-.consent-toaster .span.consent-choice {
-  justify-content: space-between;
-}
-
-.consent-toaster .consent-choice .button {
+.Consent-Toaster .toaster-body .consent-choice .button {
   background: white;
   padding: 0.25rem 1.125rem;
   border-radius: 1px;
-  border: 2px solid #202020;
+  border: 0;
   box-shadow: 2px 2px rgba(0, 0, 0, 0.1);
   display: inline-block;
   width: 48%;
-  transition: background-color 450ms ease-out, color 550ms ease-out, box-shadow 450ms ease-out;
+  line-height: 1;
+  transition: background-color 250ms ease-out, color 350ms ease-out, box-shadow 250ms ease-out;
   text-transform: uppercase;
 }
 
-.consent-toaster .consent-choice .button:hover {
+.Consent-Toaster .toaster-body .consent-choice .button:hover {
   background: #202020;
   color: #fff;
   box-shadow: 2px 3px rgba(0, 0, 0, 0.2);
@@ -101,17 +93,17 @@
 /* 
  * ReactCSSTransitionGroup Mount & Unmount
  */
-.consent-toaster-appear {
+.toaster-appear {
   bottom: -50vh;
 }
-.consent-toaster-appear.consent-toaster-appear-active {
+.toaster-appear.toaster-appear-active {
   bottom: 0;
   transition: bottom 500ms ease-out;
 }
-.consent-toaster-leave {
+.toaster-leave {
   bottom: 0;
 }
-.consent-toaster-leave.consent-toaster-leave-active {
+.toaster-leave.toaster-leave-active {
   bottom: -50vh;
   transition: bottom 500ms ease-out;
 }
