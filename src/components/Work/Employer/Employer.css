@@ -8,12 +8,16 @@
 
 .Employer ul {
   list-style: none;
-  padding: 0 1rem;
-  margin: 1rem 0 0;
+  padding: 1rem;
+  margin: 0;
 }
 
 .Employer li {
-  padding: 0 0 1rem 0;
+  margin: 0 0 1rem 0;
+}
+
+.Employer li:last-child {
+  margin: 0;
 }
 
 .Employer .employer-heading {
@@ -22,81 +26,54 @@
 }
 
 .Employer .employer-name {
-  margin: 1rem 0 0;
+  margin: 2rem 0 0.5rem;
+}
+
+.Employer:first-of-type .employer-name {
+  margin: 1rem 0 0.5rem;
 }
 
 .Employer .role-body {
   padding: 0 0 0 0.25rem;
 }
 
-@media (min-width: 768px) {
-  .Employer .role-body {
-    padding: 0 0 0 1rem;
-  }
-}
-
 .Employer .role-body .role-heading {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   color: #202020;
-  margin: 1rem 0 0;
+  margin: 2rem 0 0;
 }
 
 .Employer .role-body .role-heading .toggle-role-details {
   border: none;
   font-weight: bold;
-  background: white;
-  color: #202020;
+  background: #77A1B7;
+  color: #fff;
   border-radius: 1px;
   transition: background-color 250ms ease-out, color 250ms ease-out;
-  animation: toggle-hint 1250ms ease-in 0ms 1;
-}
-
-.Employer .role-body .role-heading .toggle-role-details > span {
-  display: block;
-  width: 1rem;
+  padding: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0 0 1px 0;
 }
 
 .Employer .role-body .role-heading .toggle-role-details:hover,
 .Employer .role-body .role-heading .toggle-role-details.toggle-open {
-  background-color: #202020;
-  color: #fff;
+  background: #376e8c;
 }
 
 .Employer .role-body .role-heading .toggle-role-details.toggle-open:hover {
-  background: white;
-  color: #202020;
-}
-
-@keyframes toggle-hint { 
-  0% {
-    background: #fff;
-    color: #202020;
-  }
-  15% {
-    background: #202020;
-    color: white;
-  }
-  30% {
-    background: #fff;
-    color: #202020;
-  }
-  45% {
-    background: #202020;
-    color: white;
-  }
-  70% {
-    background: #fff;
-    color: #202020;
-  }
-  100% {
-    background: #fff;
-    color: #202020;
-  }
+  background: #77A1B7;
 }
 
 .Employer .role-body .role-heading .role-title {
-  margin: 0;
+  margin: 0 0 0 1rem;
+  text-transform: uppercase;
+}
+
+.Employer .role-body .responsibilities {
+  border-left: 1.5rem solid #77A1B7;
+  overflow: hidden;
 }
 
 @media (min-width: 812px) {
