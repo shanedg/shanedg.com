@@ -1,16 +1,16 @@
-.Talk {
+.Contact {
   padding: 0 1rem;
   margin: 0 0 4rem;
 }
 
-.Talk h2 {
+.Contact h2 {
   padding: 0.125rem 0.5rem;
   background: #376e8c;
   color: white;
   margin: 1rem 0 2rem;
 }
 
-.Talk p {
+.Contact p {
   padding: 0 0 0 0.5rem;
   line-height: 1.5;
 }

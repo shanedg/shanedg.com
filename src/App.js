@@ -5,12 +5,11 @@ import './App.css';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import Work from './components/Work/Work';
-import Talk from './components/Talk/Talk';
+import Contact from './components/Contact/Contact';
 import Preferences from './components/Preferences/Preferences';
 import Privacy from './components/Privacy/Privacy';
 import Footer from './components/Footer/Footer';
 import ConsentToaster from './components/Utils/ConsentToaster';
-// import Snippet from './components/Snippet/Snippet';
 
 import {
   BrowserRouter as Router,
@@ -115,7 +114,7 @@ class App extends Component {
                     <Link to="/work">Work</Link>
                   </li>
                   <li>
-                    <Link to="/contact">Talk</Link>
+                    <Link to="/contact">Contact</Link>
                   </li>
                   <li>
                     <Link to="/preferences">Prefs</Link>
@@ -128,7 +127,7 @@ class App extends Component {
               <Switch>
                 <Route exact path="/" component={Home} />
                 <Route path="/work" component={Work} />
-                <Route path="/contact" component={Talk} />
+                <Route path="/contact" component={Contact} />
                 <Route path="/preferences" render={(props) => (
                   <Preferences {...props} consent={this.state.consent} updateConsent={this.updateConsent} />
                 )} />
@@ -136,7 +135,6 @@ class App extends Component {
               </Switch>
             </div>
           </Router>
-          {/* <Snippet /> */}
           <Footer />
         </div>
 
