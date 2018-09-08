@@ -4,7 +4,8 @@
 }
 
 .Preferences .options {
-  padding: 0 0.5rem;
+  padding: 0 0 0 0.5rem;
+  line-height: 1.5;
 }
 
 .Preferences .h2 {

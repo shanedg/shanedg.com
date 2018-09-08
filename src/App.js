@@ -10,8 +10,7 @@ import Preferences from './components/Preferences/Preferences';
 import Privacy from './components/Privacy/Privacy';
 import Footer from './components/Footer/Footer';
 import ConsentToaster from './components/Utils/ConsentToaster';
-
-import Snippet from './components/Snippet/Snippet';
+// import Snippet from './components/Snippet/Snippet';
 
 import {
   BrowserRouter as Router,
@@ -137,7 +136,7 @@ class App extends Component {
               </Switch>
             </div>
           </Router>
-          <Snippet />
+          {/* <Snippet /> */}
           <Footer />
         </div>
 
