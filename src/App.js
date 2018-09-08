@@ -99,57 +99,56 @@ class App extends Component {
   render() {
 
     return (
-      <div className="App" style={this.state.extraPadding}>
+      <Router>
+        <div className="App" style={this.state.extraPadding}>
 
-        <div className="App-inner">
-          <Header />
-          <Router>
-            <div>
-              <nav>
-                <ul>
-                  <li>
-                    <Link to="/">Home</Link>
-                  </li>
-                  <li>
-                    <Link to="/work">Work</Link>
-                  </li>
-                  <li>
-                    <Link to="/contact">Contact</Link>
-                  </li>
-                  <li>
-                    <Link to="/preferences">Prefs</Link>
-                  </li>
-                  <li>
-                    <Link to="/privacy">Privacy</Link>
-                  </li>
-                </ul>
-              </nav>
-              <Switch>
-                <Route exact path="/" component={Home} />
-                <Route path="/work" component={Work} />
-                <Route path="/contact" component={Contact} />
-                <Route path="/preferences" render={(props) => (
-                  <Preferences {...props} consent={this.state.consent} updateConsent={this.updateConsent} />
-                )} />
-                <Route path="/privacy" component={Privacy} />
-              </Switch>
-            </div>
-          </Router>
-          <Footer />
+          <div className="App-inner">
+            <Header />
+            <nav>
+              <ul>
+                <li>
+                  <Link to="/">Home</Link>
+                </li>
+                <li>
+                  <Link to="/work">Work</Link>
+                </li>
+                <li>
+                  <Link to="/contact">Contact</Link>
+                </li>
+                <li>
+                  <Link to="/preferences">Prefs</Link>
+                </li>
+                <li>
+                  <Link to="/privacy">Privacy</Link>
+                </li>
+              </ul>
+            </nav>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/work" component={Work} />
+              <Route path="/contact" component={Contact} />
+              <Route path="/preferences" render={(props) => (
+                <Preferences {...props} consent={this.state.consent} updateConsent={this.updateConsent} />
+              )} />
+              <Route path="/privacy" component={Privacy} />
+            </Switch>
+            <Footer />
+          </div>
+
+          <ReactCSSTransitionGroup
+            transitionName="toaster"
+            transitionAppear={true}
+            transitionAppearTimeout={500}
+            transitionEnter={false}
+            transitionLeaveTimeout={500}>
+            {this.state.consent &&
+              !this.state.consent.alreadyAsked &&
+              <ConsentToaster ref={this.toasterRef} key={'consent-toaster'} consentHandler={this.consentHandler} dismissHandler={this.dismissHandler} />
+            }
+          </ReactCSSTransitionGroup>
+          
         </div>
-
-        <ReactCSSTransitionGroup
-          transitionName="toaster"
-          transitionAppear={true}
-          transitionAppearTimeout={500}
-          transitionEnter={false}
-          transitionLeaveTimeout={500}>
-          {this.state.consent &&
-            !this.state.consent.alreadyAsked &&
-            <ConsentToaster ref={this.toasterRef} key={'consent-toaster'} consentHandler={this.consentHandler} dismissHandler={this.dismissHandler} />
-          }
-        </ReactCSSTransitionGroup>
-      </div>
+      </Router>
     );
   }
 }
