@@ -17,8 +17,6 @@
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://cdn.iubenda.com">
-    <!-- Preload 3rd party script, iubenda generated privacy policy -->
-    <!-- <link rel="preload" as="script" href="https://cdn.iubenda.com/iubenda.js"> -->
 
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
@@ -30,6 +28,9 @@
       'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
       })(window,document,'script','dataLayer','%REACT_APP_GTM_CONTAINER%');</script>
     <!-- End Google Tag Manager -->
+
+    <!-- Prefetch 3rd party script with low priority, iubenda generated privacy policy -->
+    <link rel="prefetch" href="https://cdn.iubenda.com/iubenda.js">
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
@@ -39,9 +40,5 @@
       Sorry! You need to enable JavaScript to get the full experience.
     </noscript>
     <div id="root"></div>
-
-    <!-- Begin iubenda generated privacy policy embed script -->
-    <!-- <script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script> -->
-    <!-- End iubenda generated privacy policy embed script -->
   </body>
 </html>
