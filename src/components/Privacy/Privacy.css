@@ -1,0 +1,16 @@
+.Privacy {
+  padding: 0 1rem;
+  margin: 0 0 4rem;
+}
+
+.Privacy h2 {
+  padding: 0.125rem 0.5rem;
+  background: #376e8c;
+  color: white;
+  margin: 1rem 0 2rem;
+}
+
+.Privacy p {
+  padding: 0 0 0 0.5rem;
+  line-height: 1.5;
+}
