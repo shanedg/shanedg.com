@@ -3,8 +3,11 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import Cookies from 'js-cookie';
 import './App.css';
 import Header from './components/Header/Header';
+import Home from './components/Home/Home';
 import Work from './components/Work/Work';
+import Talk from './components/Talk/Talk';
 import Preferences from './components/Preferences/Preferences';
+import Privacy from './components/Privacy/Privacy';
 import Footer from './components/Footer/Footer';
 import ConsentToaster from './components/Utils/ConsentToaster';
 
@@ -113,16 +116,24 @@ class App extends Component {
                     <Link to="/work">Work</Link>
                   </li>
                   <li>
-                    <Link to="/preferences">Preferences</Link>
+                    <Link to="/contact">Talk</Link>
+                  </li>
+                  <li>
+                    <Link to="/preferences">Prefs</Link>
+                  </li>
+                  <li>
+                    <Link to="/privacy">Privacy</Link>
                   </li>
                 </ul>
               </nav>
               <Switch>
-                <Route exact path="/" component={null} />
+                <Route exact path="/" component={Home} />
                 <Route path="/work" component={Work} />
+                <Route path="/contact" component={Talk} />
                 <Route path="/preferences" render={(props) => (
                   <Preferences {...props} consent={this.state.consent} updateConsent={this.updateConsent} />
                 )} />
+                <Route path="/privacy" component={Privacy} />
               </Switch>
             </div>
           </Router>
