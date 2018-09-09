@@ -11,6 +11,8 @@ import Privacy from './components/Privacy/Privacy';
 import Footer from './components/Footer/Footer';
 import ConsentToaster from './components/Utils/ConsentToaster';
 
+import { AnimatedSwitch } from 'react-router-transition';
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -110,28 +112,46 @@ class App extends Component {
                   <Link to="/">Home</Link>
                 </li>
                 <li>
-                  <Link to="/work">Work</Link>
+                  <Link to="/work/">Work</Link>
                 </li>
                 <li>
-                  <Link to="/contact">Contact</Link>
+                  <Link to="/contact/">Contact</Link>
                 </li>
                 <li>
-                  <Link to="/preferences">Prefs</Link>
+                  <Link to="/preferences/">Prefs</Link>
                 </li>
                 <li>
-                  <Link to="/privacy">Privacy</Link>
+                  <Link to="/privacy/">Privacy</Link>
                 </li>
               </ul>
             </nav>
-            <Switch>
+            {/* <Switch> */}
+            <AnimatedSwitch
+              atEnter={{
+                x: -100
+              }}
+              atLeave={{
+                x: 100
+              }}
+              atActive={{
+                x: 0
+              }}
+              mapStyles={(style) => {
+                return {
+                  transform: `translateX(${style.x}vw)`
+                };
+              }}
+              className="switch-wrapper"
+            >
               <Route exact path="/" component={Home} />
-              <Route path="/work" component={Work} />
-              <Route path="/contact" component={Contact} />
-              <Route path="/preferences" render={(props) => (
+              <Route path="/work/" component={Work} />
+              <Route path="/contact/" component={Contact} />
+              <Route path="/preferences/" render={(props) => (
                 <Preferences {...props} consent={this.state.consent} updateConsent={this.updateConsent} />
               )} />
-              <Route path="/privacy" component={Privacy} />
-            </Switch>
+              <Route path="/privacy/" component={Privacy} />
+            {/* </Switch> */}
+            </AnimatedSwitch>
             <Footer />
           </div>
 
