@@ -128,16 +128,20 @@ class App extends Component {
             {/* <Switch> */}
             <AnimatedSwitch
               atEnter={{
-                x: -100
+                x: 100,
+                opacity: 1
               }}
               atLeave={{
-                x: 100
+                x: -100,
+                opacity: 0
               }}
               atActive={{
-                x: 0
+                x: 0,
+                opacity: 1
               }}
               mapStyles={(style) => {
                 return {
+                  opacity: style.opacity,
                   transform: `translateX(${style.x}vw)`
                 };
               }}
