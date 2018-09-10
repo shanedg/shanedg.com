@@ -37,15 +37,13 @@ class App extends Component {
   }
 
   componentDidMount() {
-    setTimeout(() => {
-      if (!this.state.consent.alreadyAsked) {
-        this.setState({
-          extraPadding: {
-            paddingBottom: this.toasterRef.current.state.height + 'px'
-          }
-        });
-      }
-    }, 0);
+    if (!this.state.consent.alreadyAsked) {
+      this.setState({
+        extraPadding: {
+          paddingBottom: this.toasterRef.current.clientHeight
+        }
+      });
+    }
   }
 
   updateConsent(isGranted) {
@@ -143,10 +141,14 @@ class App extends Component {
             transitionLeaveTimeout={500}>
             {this.state.consent &&
               !this.state.consent.alreadyAsked &&
-              <ConsentToaster ref={this.toasterRef} key={'consent-toaster'} consentHandler={this.consentHandler} dismissHandler={this.dismissHandler} />
+              <ConsentToaster
+                key={'consent-toaster'}
+                ref={this.toasterRef}
+                consentHandler={this.consentHandler}
+                dismissHandler={this.dismissHandler}
+              />
             }
           </ReactCSSTransitionGroup>
-          
         </div>
       </Router>
     );
