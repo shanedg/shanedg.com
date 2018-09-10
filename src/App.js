@@ -11,7 +11,7 @@ import Privacy from './components/Privacy/Privacy';
 import Footer from './components/Footer/Footer';
 import ConsentToaster from './components/Utils/ConsentToaster';
 
-import { AnimatedSwitch } from 'react-router-transition';
+import RouteWrapper from './components/MyAnimatedSwitch/MyAnimatedSwitch';
 
 import {
   BrowserRouter as Router,
@@ -31,6 +31,7 @@ class App extends Component {
     };
 
     this.toasterRef = React.createRef();
+    this.contentRef = React.createRef();
 
     this.adjustPadding = this.adjustPadding.bind(this);
     this.updateConsent = this.updateConsent.bind(this);
@@ -45,6 +46,10 @@ class App extends Component {
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.adjustPadding);
+  }
+
+  componentDidUpdate() {
+    console.log('new ref:', this.contentRef.current);
   }
 
   adjustPadding() {
@@ -132,8 +137,7 @@ class App extends Component {
                 </li>
               </ul>
             </nav>
-            {/* <Switch> */}
-            <AnimatedSwitch
+            <RouteWrapper
               atEnter={{
                 x: 100,
                 opacity: 1
@@ -153,6 +157,7 @@ class App extends Component {
                 };
               }}
               className="switch-wrapper"
+              ref={this.contentRef}
             >
               <Route exact path="/" component={Home} />
               <Route path="/work/" component={Work} />
@@ -161,8 +166,7 @@ class App extends Component {
                 <Preferences {...props} consent={this.state.consent} updateConsent={this.updateConsent} />
               )} />
               <Route path="/privacy/" component={Privacy} />
-            {/* </Switch> */}
-            </AnimatedSwitch>
+            </RouteWrapper>
             <Footer />
           </div>
 
