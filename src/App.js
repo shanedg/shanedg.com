@@ -31,12 +31,22 @@ class App extends Component {
 
     this.toasterRef = React.createRef();
 
+    this.adjustPadding = this.adjustPadding.bind(this);
     this.updateConsent = this.updateConsent.bind(this);
     this.consentHandler = this.consentHandler.bind(this);
     this.dismissHandler = this.dismissHandler.bind(this);
   }
 
   componentDidMount() {
+    this.adjustPadding();
+    window.addEventListener('resize', this.adjustPadding);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.adjustPadding);
+  }
+
+  adjustPadding() {
     if (!this.state.consent.alreadyAsked) {
       this.setState({
         extraPadding: {
