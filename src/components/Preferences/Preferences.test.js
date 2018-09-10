@@ -31,3 +31,13 @@ it('renders without crashing (consent granted)', () => {
   ReactDOM.render(<Preferences consent={consent} />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
+
+it('renders without crashing (BAD STATE)', () => {
+  const div = document.createElement('div');
+  const consent = {
+    alreadyAsked: false,
+    consentGranted: true
+  };
+  ReactDOM.render(<Preferences consent={consent} />, div);
+  ReactDOM.unmountComponentAtNode(div);
+});
