@@ -7,27 +7,12 @@ import './ConsentToaster.css';
 
 class ConsentToaster extends Component {
 
-  constructor(props) {
-    super(props);
-    this.toasterDOM = React.createRef();
-
-    this.state = {
-      height: 0
-    };
-  }
-
-  componentDidMount() {
-    this.setState(() => ({
-      height: this.toasterDOM.current.clientHeight
-    }));
-  }
-
   render() {
 
     return (
       <div className="Consent-Toaster">
         <button className="button dismiss-toaster" id="dismiss-consent-toaster" onClick={this.props.dismissHandler}>X</button>
-        <div className="toaster-body" ref={this.toasterDOM}>
+        <div className="toaster-body" ref={this.props.forwardedRef}>
           <p>This site uses <a href="https://en.wikipedia.org/wiki/HTTP_cookie" target="_blank" rel="noopener noreferrer" title="read more about Cookies">Cookies</a>; do you consent to allowing this site to store Cookies on your device? You can always change your mind later <Link to="/preferences">here</Link>.</p>
           <span className="span consent-choice">
             <button className="button" id="cookie-consent-yes" onClick={this.props.consentHandler}>Yes</button>
@@ -39,4 +24,9 @@ class ConsentToaster extends Component {
   }
 }
 
-export default ConsentToaster;
+export default React.forwardRef((props, ref) => {
+  return <ConsentToaster
+    {...props}
+    forwardedRef={ref}
+  />;
+});
