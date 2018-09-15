@@ -28,6 +28,13 @@
   margin: 1rem 0;
 }
 
+.App nav ul .active-page,
+.App nav ul .active-page:hover {
+  background: white;
+  color: #202020;
+  cursor: default;
+}
+
 .App .button {
   cursor: pointer;
 }

@@ -15,7 +15,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  NavLink
 } from 'react-router-dom';
 
 class App extends Component {
@@ -115,19 +115,19 @@ class App extends Component {
             <nav>
               <ul>
                 <li>
-                  <Link to="/">Home</Link>
+                  <NavLink activeClassName="active-page" exact={true} to="/">Home</NavLink>
                 </li>
                 <li>
-                  <Link to="/work">Work</Link>
+                  <NavLink activeClassName="active-page" exact={true} to="/work">Work</NavLink>
                 </li>
                 <li>
-                  <Link to="/contact">Contact</Link>
+                  <NavLink activeClassName="active-page" exact={true} to="/contact">Contact</NavLink>
                 </li>
                 <li>
-                  <Link to="/preferences">Prefs</Link>
+                  <NavLink activeClassName="active-page" exact={true} to="/preferences">Prefs</NavLink>
                 </li>
                 <li>
-                  <Link to="/privacy">Privacy</Link>
+                  <NavLink activeClassName="active-page" exact={true} to="/privacy">Privacy</NavLink>
                 </li>
               </ul>
             </nav>
