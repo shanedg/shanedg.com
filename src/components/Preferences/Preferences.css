@@ -13,6 +13,7 @@
   padding: 0.125rem 0.5rem;
   color: white;
   margin: 1rem 0 2rem;
+  border-radius: 2px;
 }
 
 .Preferences input[type="checkbox"] {

@@ -2,6 +2,7 @@
   position: relative;
   padding: 1rem;
   background: #376e8c;
+  border-radius: 0 0 2px 2px;
 }
 
 .header .h1 {
@@ -11,6 +12,7 @@
   background: #202020;
   margin: 1rem 1.5rem 1rem 0;
   color: white;
+  border-radius: 2px;
 }
 
 .header .portrait {
@@ -35,6 +37,7 @@
   margin: 1rem 0 0.5rem;
   background: white;
   color: #202020;
+  border-radius: 2px;
 }
 
 @media (min-width: 550px) {

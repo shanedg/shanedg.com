@@ -49,7 +49,7 @@
   font-weight: bold;
   background: #77A1B7;
   color: #fff;
-  border-radius: 1px;
+  border-radius: 2px;
   transition: background-color 250ms ease-out, color 250ms ease-out;
   padding: 0;
   width: 1.5rem;
@@ -72,6 +72,7 @@
 }
 
 .Employer .role-body .responsibilities {
+  border-radius: 12px 0 0 12px;
   border-left: 1.5rem solid #77A1B7;
   overflow: hidden;
 }

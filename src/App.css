@@ -14,7 +14,7 @@
   padding: 0 0.3rem;
   background: #202020;
   color: white;
-  border-radius: 1px;
+  border-radius: 2px;
 }
 
 .App a:hover {
@@ -26,6 +26,13 @@
   list-style: none;
   display: flex;
   margin: 1rem 0;
+}
+
+.App nav ul .active-page,
+.App nav ul .active-page:hover {
+  background: white;
+  color: #202020;
+  cursor: default;
 }
 
 .App .button {
