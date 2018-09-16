@@ -12,19 +12,16 @@ class Nav extends Component {
       <nav className="Nav">
         <ul>
           <li>
-            <NavLink activeClassName="active-page" exact to="/">Home</NavLink>
+            <NavLink activeClassName="active-page" exact to="/">home</NavLink>
           </li>
           <li>
-            <NavLink activeClassName="active-page" exact to="/work/">Work</NavLink>
+            <NavLink activeClassName="active-page" exact to="/work/">work</NavLink>
           </li>
           <li>
-            <NavLink activeClassName="active-page" exact to="/contact/">Contact</NavLink>
+            <NavLink activeClassName="active-page" exact to="/contact/">contact</NavLink>
           </li>
           <li>
-            <NavLink activeClassName="active-page" exact to="/preferences/">Prefs</NavLink>
-          </li>
-          <li>
-            <NavLink activeClassName="active-page" exact to="/privacy/">Privacy</NavLink>
+            <NavLink activeClassName="active-page" exact to="/privacy/">privacy</NavLink>
           </li>
         </ul>
       </nav>
