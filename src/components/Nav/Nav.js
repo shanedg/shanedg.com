@@ -21,9 +21,6 @@ class Nav extends Component {
             <NavLink activeClassName="active-page" exact to="/contact/">contact</NavLink>
           </li>
           <li>
-            <NavLink activeClassName="active-page" exact to="/preferences/">prefs</NavLink>
-          </li>
-          <li>
             <NavLink activeClassName="active-page" exact to="/privacy/">privacy</NavLink>
           </li>
         </ul>

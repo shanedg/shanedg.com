@@ -7,7 +7,6 @@ import Nav from './components/Nav/Nav';
 import Home from './components/Home/Home';
 import Work from './components/Work/Work';
 import Contact from './components/Contact/Contact';
-import Preferences from './components/Preferences/Preferences';
 import Privacy from './components/Privacy/Privacy';
 import Footer from './components/Footer/Footer';
 import ConsentToaster from './components/Utils/ConsentToaster';
@@ -117,10 +116,9 @@ class App extends Component {
               <Route exact path="/" component={Home} />
               <Route path="/work" component={Work} />
               <Route path="/contact" component={Contact} />
-              <Route path="/preferences" render={(props) => (
-                <Preferences {...props} consent={this.state.consent} updateConsent={this.updateConsent} />
+              <Route path="/privacy" render={(props) => (
+                <Privacy {...props} consent={this.state.consent} updateConsent={this.updateConsent} />
               )} />
-              <Route path="/privacy" component={Privacy} />
             </Switch>
             <Footer />
           </div>

@@ -19,3 +19,13 @@
 .Privacy iframe {
   vertical-align: middle;
 }
+
+.Privacy .options {
+  padding: 0 0 0 0.5rem;
+  line-height: 1.5;
+}
+
+.Privacy input[type="checkbox"] {
+  vertical-align: middle;
+  margin: 0 0.5ex;
+}
