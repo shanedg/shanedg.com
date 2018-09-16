@@ -3,6 +3,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import Cookies from 'js-cookie';
 import './App.css';
 import Header from './components/Header/Header';
+import Nav from './components/Nav/Nav';
 import Home from './components/Home/Home';
 import Work from './components/Work/Work';
 import Contact from './components/Contact/Contact';
@@ -14,8 +15,7 @@ import ConsentToaster from './components/Utils/ConsentToaster';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  NavLink
+  Route
 } from 'react-router-dom';
 
 class App extends Component {
@@ -112,25 +112,7 @@ class App extends Component {
 
           <div className="App-inner">
             <Header />
-            <nav>
-              <ul>
-                <li>
-                  <NavLink activeClassName="active-page" exact={true} to="/">Home</NavLink>
-                </li>
-                <li>
-                  <NavLink activeClassName="active-page" exact={true} to="/work">Work</NavLink>
-                </li>
-                <li>
-                  <NavLink activeClassName="active-page" exact={true} to="/contact">Contact</NavLink>
-                </li>
-                <li>
-                  <NavLink activeClassName="active-page" exact={true} to="/preferences">Prefs</NavLink>
-                </li>
-                <li>
-                  <NavLink activeClassName="active-page" exact={true} to="/privacy">Privacy</NavLink>
-                </li>
-              </ul>
-            </nav>
+            <Nav />
             <Switch>
               <Route exact path="/" component={Home} />
               <Route path="/work" component={Work} />
