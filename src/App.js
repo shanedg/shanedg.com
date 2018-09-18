@@ -3,10 +3,10 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import Cookies from 'js-cookie';
 import './App.css';
 import Header from './components/Header/Header';
+import Nav from './components/Nav/Nav';
 import Home from './components/Home/Home';
 import Work from './components/Work/Work';
 import Contact from './components/Contact/Contact';
-import Preferences from './components/Preferences/Preferences';
 import Privacy from './components/Privacy/Privacy';
 import Footer from './components/Footer/Footer';
 import ConsentToaster from './components/Utils/ConsentToaster';
@@ -15,8 +15,8 @@ import RouteWrapper from './components/MyAnimatedSwitch/MyAnimatedSwitch';
 
 import {
   BrowserRouter as Router,
-  Route,
-  Link
+  Switch,
+  Route
 } from 'react-router-dom';
 
 class App extends Component {
@@ -118,25 +118,8 @@ class App extends Component {
 
           <div className="App-inner">
             <Header />
-            <nav>
-              <ul>
-                <li>
-                  <Link to="/">Home</Link>
-                </li>
-                <li>
-                  <Link to="/work/">Work</Link>
-                </li>
-                <li>
-                  <Link to="/contact/">Contact</Link>
-                </li>
-                <li>
-                  <Link to="/preferences/">Prefs</Link>
-                </li>
-                <li>
-                  <Link to="/privacy/">Privacy</Link>
-                </li>
-              </ul>
-            </nav>
+            <Nav />
+            {/* <Switch> */}
             <RouteWrapper
               atEnter={{
                 x: 100,
@@ -160,13 +143,13 @@ class App extends Component {
               ref={this.contentRef}
             >
               <Route exact path="/" component={Home} />
-              <Route path="/work/" component={Work} />
-              <Route path="/contact/" component={Contact} />
-              <Route path="/preferences/" render={(props) => (
-                <Preferences {...props} consent={this.state.consent} updateConsent={this.updateConsent} />
+              <Route path="/work" component={Work} />
+              <Route path="/contact" component={Contact} />
+              <Route path="/privacy" render={(props) => (
+                <Privacy {...props} consent={this.state.consent} updateConsent={this.updateConsent} />
               )} />
-              <Route path="/privacy/" component={Privacy} />
             </RouteWrapper>
+            {/* </Switch> */}
             <Footer />
           </div>
 

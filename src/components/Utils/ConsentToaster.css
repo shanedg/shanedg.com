@@ -4,6 +4,7 @@
   transition: bottom 50ms ease-out;
   width: 100%;
   background: #376e8c;
+  border-radius: 2px 2px 0 0;
   color: white;
 }
 
@@ -48,9 +49,9 @@
   cursor: pointer;
   position: absolute;
   top: -1.25rem;
-  left: 1rem;
+  left: 1.22rem;
   padding: 0.25rem 0.5rem;
-  border-radius: 1px;
+  border-radius: 2px 2px 0 0;
   font-weight: bold;
 }
 

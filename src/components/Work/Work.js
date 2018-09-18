@@ -14,9 +14,10 @@ class Work extends Component {
       },
       highlightsBlurb: 'what it is',
       askMeAbout: [
-        'Node, CraftCMS, WordPress',
-        'Experimentation & personalization',
-        'CMS migration, partnering with tech vendors, site launches, site relaunches, and Q/A'
+        'node, craftcms, wordpress',
+        'react and vue js',
+        'experimentation & personalization',
+        'content migration, re-platforming, site launches'
       ]
     },{
       employerName: 'dick\'s sporting goods',
@@ -27,9 +28,9 @@ class Work extends Component {
       },
       highlightsBlurb: 'what it was',
       askMeAbout: [
-        'Site optimization, a/b testing',
-        'Integrating new tech in the Enterprise',
-        'Responsive vs Adaptive front end development'
+        'conversion optimization, a/b testing',
+        'integrating tech in the enterprise',
+        'responsive vs adaptive front end development'
       ]
     }];
 
