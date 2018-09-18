@@ -14,6 +14,13 @@ class Privacy extends Component {
     }
   }
 
+  componentWillUnmount() {
+    // Only in browser context:
+    if (window && document) {
+      // TODO: remove 3rd party script on unmount!
+    }
+  }
+
   consentToggle(e) {
     const status = e.currentTarget.checked;
     this.props.updateConsent(status);
