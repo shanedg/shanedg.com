@@ -14,6 +14,13 @@ class Privacy extends Component {
     }
   }
 
+  componentWillUnmount() {
+    // Only in browser context:
+    if (window && document) {
+      document.querySelector('script[src="https://cdn.iubenda.com/iubenda.js"]').remove();
+    }
+  }
+
   consentToggle(e) {
     const status = e.currentTarget.checked;
     this.props.updateConsent(status);
