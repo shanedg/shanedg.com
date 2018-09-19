@@ -1,10 +1,11 @@
+
 import React from 'react';
 import Route from 'react-router-dom/Route';
 import Switch from 'react-router-dom/Switch';
 import matchPath from 'react-router-dom/matchPath';
 import PropTypes from 'prop-types';
 
-// import RouteTransition from './RouteTransition';
+// source: https://github.com/maisano/react-router-transition
 import { RouteTransition } from 'react-router-transition';
 
 const NO_MATCH = {
@@ -31,7 +32,7 @@ function getMatchedRoute(children, pathname) {
   }) || NO_MATCH;
 }
 
-class MyAnimatedSwitch extends React.Component {
+class AnimatedSwitch extends React.Component {
   static propTypes = {
     location: PropTypes.shape({
       key: PropTypes.string,
@@ -60,15 +61,11 @@ class MyAnimatedSwitch extends React.Component {
     }
   }
 
-  componentDidUpdate() {
-    console.log('new ref:', this.props.forwardedRef.current.props.children);
-  }
-
   render() {
     const { children, location, match, ...routeTransitionProps } = this.props;
 
     return (
-      <RouteTransition ref={this.props.forwardedRef} {...routeTransitionProps}>
+      <RouteTransition {...routeTransitionProps}>
         <Switch key={this.state.key} location={location}>
           {children}
         </Switch>
@@ -81,15 +78,9 @@ class MyAnimatedSwitch extends React.Component {
 const RouteWrapper = props => (
   <Route
     children={({ location }) => (
-      <MyAnimatedSwitch location={location} {...props} />
+      <AnimatedSwitch location={location} {...props} />
     )}
   />
 );
 
-// export default RouteWrapper;
-export default React.forwardRef((props, ref) => {
-  return <RouteWrapper
-    {...props}
-    forwardedRef={ref}
-  />;
-});
+export default RouteWrapper;

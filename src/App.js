@@ -8,14 +8,14 @@ import Home from './components/Home/Home';
 import Work from './components/Work/Work';
 import Contact from './components/Contact/Contact';
 import Privacy from './components/Privacy/Privacy';
-import Footer from './components/Footer/Footer';
+// import Footer from './components/Footer/Footer';
 import ConsentToaster from './components/Utils/ConsentToaster';
 
-import RouteWrapper from './components/MyAnimatedSwitch/MyAnimatedSwitch';
+// source here: https://github.com/maisano/react-router-transition
+import RouteWrapper from './components/AnimatedSwitch/AnimatedSwitch';
 
 import {
   BrowserRouter as Router,
-  Switch,
   Route
 } from 'react-router-dom';
 
@@ -31,7 +31,6 @@ class App extends Component {
     };
 
     this.toasterRef = React.createRef();
-    this.contentRef = React.createRef();
 
     this.adjustPadding = this.adjustPadding.bind(this);
     this.updateConsent = this.updateConsent.bind(this);
@@ -46,10 +45,6 @@ class App extends Component {
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.adjustPadding);
-  }
-
-  componentDidUpdate() {
-    console.log('new ref:', this.contentRef.current);
   }
 
   adjustPadding() {
@@ -119,7 +114,6 @@ class App extends Component {
           <div className="App-inner">
             <Header />
             <Nav />
-            {/* <Switch> */}
             <RouteWrapper
               atEnter={{
                 x: 100,
@@ -140,7 +134,6 @@ class App extends Component {
                 };
               }}
               className="switch-wrapper"
-              ref={this.contentRef}
             >
               <Route exact path="/" component={Home} />
               <Route path="/work" component={Work} />
@@ -149,8 +142,7 @@ class App extends Component {
                 <Privacy {...props} consent={this.state.consent} updateConsent={this.updateConsent} />
               )} />
             </RouteWrapper>
-            {/* </Switch> */}
-            <Footer />
+            {/* <Footer /> */}
           </div>
 
           <ReactCSSTransitionGroup
