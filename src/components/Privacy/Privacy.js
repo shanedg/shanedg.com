@@ -17,7 +17,7 @@ class Privacy extends Component {
   componentWillUnmount() {
     // Only in browser context:
     if (window && document) {
-      // TODO: remove 3rd party script on unmount!
+      document.querySelector('script[src="https://cdn.iubenda.com/iubenda.js"]').remove();
     }
   }
 
