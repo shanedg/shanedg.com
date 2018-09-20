@@ -68,7 +68,7 @@
 
 .Employer .role-body .role-heading .role-title {
   margin: 0 0 0 1rem;
-  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .Employer .role-body .responsibilities {
