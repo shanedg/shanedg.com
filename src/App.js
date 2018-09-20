@@ -8,12 +8,13 @@ import Home from './components/Home/Home';
 import Work from './components/Work/Work';
 import Contact from './components/Contact/Contact';
 import Privacy from './components/Privacy/Privacy';
-import Footer from './components/Footer/Footer';
 import ConsentToaster from './components/Utils/ConsentToaster';
+
+// source here: https://github.com/maisano/react-router-transition
+import RouteWrapper from './components/AnimatedSwitch/AnimatedSwitch';
 
 import {
   BrowserRouter as Router,
-  Switch,
   Route
 } from 'react-router-dom';
 
@@ -23,9 +24,10 @@ class App extends Component {
     super(props);
     this.state = {
       consent: this.props.consent,
-      extraPadding: {
+      appOuterStyles: {
         paddingBottom: '0'
-      }
+      },
+      appInnerStyles: {}
     };
 
     this.toasterRef = React.createRef();
@@ -48,7 +50,7 @@ class App extends Component {
   adjustPadding() {
     if (!this.state.consent.alreadyAsked) {
       this.setState({
-        extraPadding: {
+        appOuterStyles: {
           paddingBottom: this.toasterRef.current.clientHeight
         }
       });
@@ -86,7 +88,10 @@ class App extends Component {
         alreadyAsked: true,
         consentGranted: consented
       },
-      extraPadding: {}
+      appOuterStyles: {},
+      appInnerStyles: {
+        minHeight: '100vh'
+      }
     });
     Cookies.set('cookie_consent', consented ? 'true' : 'false');
   }
@@ -98,7 +103,10 @@ class App extends Component {
           alreadyAsked: true,
           consentGranted: false
         },
-        extraPadding: {}
+        appOuterStyles: {},
+        appInnerStyles: {
+          minHeight: '100vh'
+        }
       });
     }
   }
@@ -107,20 +115,42 @@ class App extends Component {
 
     return (
       <Router>
-        <div className="App" style={this.state.extraPadding}>
+        <div className="App" style={this.state.appOuterStyles}>
 
-          <div className="App-inner">
+          <div className="App-inner" style={this.state.appInnerStyles}>
             <Header />
             <Nav />
-            <Switch>
+            <RouteWrapper
+              atEnter={{
+                x: 100,
+                opacity: 1
+              }}
+              atLeave={{
+                x: -100,
+                opacity: 0
+              }}
+              atActive={{
+                x: 0,
+                opacity: 1
+              }}
+              mapStyles={(style) => {
+                return {
+                  opacity: style.opacity,
+                  transform: `translateX(${style.x}vw)`
+                };
+              }}
+              className="switch-wrapper"
+            >
               <Route exact path="/" component={Home} />
               <Route path="/work" component={Work} />
               <Route path="/contact" component={Contact} />
               <Route path="/privacy" render={(props) => (
-                <Privacy {...props} consent={this.state.consent} updateConsent={this.updateConsent} />
+                <Privacy {...props}
+                  consent={this.state.consent}
+                  updateConsent={this.updateConsent}
+                />
               )} />
-            </Switch>
-            <Footer />
+            </RouteWrapper>
           </div>
 
           <ReactCSSTransitionGroup

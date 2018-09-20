@@ -1,11 +1,12 @@
 .App-inner {
   padding: 0 0 1rem;
-  transition: padding 500ms ease-out;
+  transition: padding 500ms ease-out, min-height 500ms ease-out;
   position: relative;
   display: block;
   margin: 0 auto;
   box-sizing: border-box;
-  overflow: hidden;
+  overflow-x: hidden;
+  min-height: 88vh;
 }
 
 .App a,
@@ -31,4 +32,14 @@
     overflow: visible;
     max-width: 768px;
   }
+}
+
+/* Route transitions */
+.switch-wrapper {
+  position: relative;
+}
+
+.switch-wrapper > div {
+  position: absolute;
+  width: 100%;
 }
