@@ -1,13 +1,12 @@
 .App-inner {
   padding: 0 0 1rem;
-  transition: padding 500ms ease-out;
+  transition: padding 500ms ease-out, min-height 500ms ease-out;
   position: relative;
   display: block;
   margin: 0 auto;
   box-sizing: border-box;
   overflow-x: hidden;
-
-  min-height: 100vh;
+  min-height: 88vh;
 }
 
 .App a,
