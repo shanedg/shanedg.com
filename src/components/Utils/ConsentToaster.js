@@ -1,42 +1,32 @@
 import React, { Component } from 'react';
+import {
+  Link
+} from 'react-router-dom';
 
 import './ConsentToaster.css';
 
 class ConsentToaster extends Component {
 
-  constructor(props) {
-    super(props);
-    this.toasterDOM = React.createRef();
-
-    this.state = {
-      height: 0
-    };
-  }
-
-  componentDidMount() {
-    this.setState(() => ({
-      height: this.toasterDOM.current.clientHeight
-    }));
-  }
-
   render() {
 
     return (
-      <div className="consent-toaster" ref={this.toasterDOM}>
+      <div className="Consent-Toaster">
         <button className="button dismiss-toaster" id="dismiss-consent-toaster" onClick={this.props.dismissHandler}>X</button>
-        <p>This site may use Cookies. Do you consent to allowing this site to store Cookies on your device/browser?</p>
-        <div className="consent-options">
-          <span className="consent-choice">
+        <div className="toaster-body" ref={this.props.forwardedRef}>
+          <p>this site uses <a href="https://en.wikipedia.org/wiki/HTTP_cookie" target="_blank" rel="noopener noreferrer" title="read more about Cookies">cookies</a>; do you consent to allowing this site to store cookies on your device? you can always change your mind <Link to="/privacy/">later</Link>.</p>
+          <span className="span consent-choice">
             <button className="button" id="cookie-consent-yes" onClick={this.props.consentHandler}>Yes</button>
             <button className="button" id="cookie-consent-no" onClick={this.props.consentHandler}>No</button>
           </span>
-          <aside>
-            <a href="https://en.wikipedia.org/wiki/HTTP_cookie" target="_blank" rel="noopener noreferrer">Learn more about Cookies</a>
-          </aside>
         </div>
       </div>
     );
   }
 }
 
-export default ConsentToaster;
+export default React.forwardRef((props, ref) => {
+  return <ConsentToaster
+    {...props}
+    forwardedRef={ref}
+  />;
+});

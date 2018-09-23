@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
+import Snippet from '../Snippet/Snippet';
+import './Footer.css';
 
 class Footer extends Component {
 
   render() {
     return (
-      <footer className="footer">
-        <h2>talk to me</h2>
-        <p>check out my <a href="https://github.com/shanedgarrity" target="_blank" rel="noopener noreferrer">github</a> or connect with me on <a href="https://www.linkedin.com/in/shane-garrity-ba915544" target="_blank" rel="noopener noreferrer">linkedin</a> or shoot me an <a href="mailto:shanedgarrity@gmail.com">email</a></p>
+      <footer className="Footer">
+        <Snippet snippet={`console.log('under construction, please excuse the mess');`} />
       </footer>
     );
   }

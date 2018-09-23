@@ -12,7 +12,7 @@ class Header extends Component {
         <figure className="portrait">
           <img src={shaneface} alt="a portrait of shane" />
         </figure>
-        <p className="blurb">what up this is me no apologies body is my canvas and my tattoos are my story</p>
+        <p className="blurb">web engineer</p>
       </header>
     );
   }

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import Privacy from './Privacy';
 
 it('renders without crashing (initial, no consent)', () => {
   const div = document.createElement('div');
@@ -8,7 +8,7 @@ it('renders without crashing (initial, no consent)', () => {
     alreadyAsked: false,
     consentGranted: false
   };
-  ReactDOM.render(<App consent={consent} />, div);
+  ReactDOM.render(<Privacy consent={consent} />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
 
@@ -18,7 +18,7 @@ it('renders without crashing (consent denied)', () => {
     alreadyAsked: true,
     consentGranted: false
   };
-  ReactDOM.render(<App consent={consent} />, div);
+  ReactDOM.render(<Privacy consent={consent} />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
 
@@ -28,7 +28,7 @@ it('renders without crashing (consent granted)', () => {
     alreadyAsked: true,
     consentGranted: true
   };
-  ReactDOM.render(<App consent={consent} />, div);
+  ReactDOM.render(<Privacy consent={consent} />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
 
@@ -38,6 +38,6 @@ it('renders without crashing (BAD STATE)', () => {
     alreadyAsked: false,
     consentGranted: true
   };
-  ReactDOM.render(<App consent={consent} />, div);
+  ReactDOM.render(<Privacy consent={consent} />, div);
   ReactDOM.unmountComponentAtNode(div);
 });

@@ -3,9 +3,20 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import Cookies from 'js-cookie';
 import './App.css';
 import Header from './components/Header/Header';
-import Employer from './components/Employer/Employer';
-import Footer from './components/Footer/Footer';
+import Nav from './components/Nav/Nav';
+import Home from './components/Home/Home';
+import Work from './components/Work/Work';
+import Contact from './components/Contact/Contact';
+import Privacy from './components/Privacy/Privacy';
 import ConsentToaster from './components/Utils/ConsentToaster';
+
+// source here: https://github.com/maisano/react-router-transition
+import RouteWrapper from './components/AnimatedSwitch/AnimatedSwitch';
+
+import {
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom';
 
 class App extends Component {
 
@@ -13,41 +24,74 @@ class App extends Component {
     super(props);
     this.state = {
       consent: this.props.consent,
-      extraPadding: {
+      appOuterStyles: {
         paddingBottom: '0'
-      }
+      },
+      appInnerStyles: {}
     };
 
     this.toasterRef = React.createRef();
 
+    this.adjustPadding = this.adjustPadding.bind(this);
+    this.updateConsent = this.updateConsent.bind(this);
     this.consentHandler = this.consentHandler.bind(this);
     this.dismissHandler = this.dismissHandler.bind(this);
   }
 
   componentDidMount() {
-    setTimeout(() => {
-      if (!this.state.consent.priorConsent) {
-        this.setState({
-          extraPadding: {
-            paddingBottom: this.toasterRef.current.state.height + 'px'
-          }
-        });
+    this.adjustPadding();
+    window.addEventListener('resize', this.adjustPadding);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.adjustPadding);
+  }
+
+  adjustPadding() {
+    if (!this.state.consent.alreadyAsked) {
+      this.setState({
+        appOuterStyles: {
+          paddingBottom: this.toasterRef.current.clientHeight
+        }
+      });
+    }
+  }
+
+  updateConsent(isGranted) {
+    this.setState({
+      consent: {
+        alreadyAsked: true,
+        consentGranted: isGranted
       }
-    }, 0);
+    });
+    Cookies.set('cookie_consent', isGranted ? 'true' : 'false');
   }
 
   consentHandler(e) {
     let consented = false;
     if (e.currentTarget.id === 'cookie-consent-yes') {
       consented = true;
+
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        'event': 'cookie_consent_granted'
+      });
+    } else {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        'event': 'cookie_consent_denied'
+      });
     }
 
     this.setState({
       consent: {
-        priorConsent: true,
+        alreadyAsked: true,
         consentGranted: consented
       },
-      extraPadding: {}
+      appOuterStyles: {},
+      appInnerStyles: {
+        minHeight: '100vh'
+      }
     });
     Cookies.set('cookie_consent', consented ? 'true' : 'false');
   }
@@ -56,65 +100,77 @@ class App extends Component {
     if (e.currentTarget.id === 'dismiss-consent-toaster') {
       this.setState({
         consent: {
-          priorConsent: true,
+          alreadyAsked: true,
           consentGranted: false
         },
-        extraPadding: {}
+        appOuterStyles: {},
+        appInnerStyles: {
+          minHeight: '100vh'
+        }
       });
     }
   }
 
   render() {
 
-    const work = [{
-      employerName: 'braze (formerly appboy)',
-      roleTitle: 'web engineer',
-      dates: {
-        start: new Date('2017-08-10'),
-        end: 'present'
-      },
-      highlightsBlurb: 'what it is',
-      responsibilities: ['Responsible for maintaining and extending the Node Express, Vue Nuxt, and WordPress applications that form the braze.com site; and for enabling b2b lead generation.','Develop and manage a/b test and personalization campaigns in Optimizely. Evaluate experiment results, implement successful variants, and enable personalization at scale.', 'Build marketing communication preference and subscription center, ensuring compliance with the General Data Protection Regulation in effect in the European Union.', 'Integrate and leverage Braze marketing automation product to deliver customized messaging and web push notifications to clients and prospects.'],
-      projects: ['prospect preference center', 'packages page', 'interactive map', 'employee cards']
-    },{
-      employerName: 'dick\'s sporting goods',
-      roleTitle: 'front end web developer',
-      dates: {
-        start: new Date('2014-07-16'),
-        end: new Date('2017-08-06')
-      },
-      highlightsBlurb: 'what it was',
-      responsibilities: ['Developed a/b test and personalization campaigns in Adobe Target as part of site optimization group. Implemented successful variants.', 'Responsible for integrating and testing enterprise live chat widget across all web properties.', 'Developed adaptive and responsive landing pages for product and promotional campaigns.', 'Managed user acceptance testing for pilot re-platforming project and migrated legacy content between CMS platforms.'],
-      projects: ['Lead developer on Angular single page application for ecommerce product selection experience; leveraged AWS hosting and Bitbucket continuous integration products.']
-    }];
-
     return (
-      <div className="App" style={this.state.extraPadding}>
-        <Header />
-        <article className="article work">
-          <h2 className="h2">work</h2>
+      <Router>
+        <div className="App" style={this.state.appOuterStyles}>
 
-          {work.map((job, index) => {
-            return <Employer key={index} jobDetails={job} />
-          })}
+          <div className="App-inner" style={this.state.appInnerStyles}>
+            <Header />
+            <Nav />
+            <RouteWrapper
+              atEnter={{
+                x: 100,
+                opacity: 1
+              }}
+              atLeave={{
+                x: -100,
+                opacity: 0
+              }}
+              atActive={{
+                x: 0,
+                opacity: 1
+              }}
+              mapStyles={(style) => {
+                return {
+                  opacity: style.opacity,
+                  transform: `translateX(${style.x}vw)`
+                };
+              }}
+              className="switch-wrapper"
+            >
+              <Route exact path="/" component={Home} />
+              <Route path="/work" component={Work} />
+              <Route path="/contact" component={Contact} />
+              <Route path="/privacy" render={(props) => (
+                <Privacy {...props}
+                  consent={this.state.consent}
+                  updateConsent={this.updateConsent}
+                />
+              )} />
+            </RouteWrapper>
+          </div>
 
-        </article>
-        {/* <footer className="footer">
-          <h2>contact me</h2>
-        </footer> */}
-        <Footer />
-        
-        <ReactCSSTransitionGroup
-          transitionName="consent-toaster"
-          transitionAppear={true}
-          transitionAppearTimeout={500}
-          transitionEnter={false}
-          transitionLeaveTimeout={500}>
-          {!this.state.consent.priorConsent &&
-            <ConsentToaster ref={this.toasterRef} key={'consent-toaster'} consentHandler={this.consentHandler} dismissHandler={this.dismissHandler} />
-          }
-        </ReactCSSTransitionGroup>
-      </div>
+          <ReactCSSTransitionGroup
+            transitionName="toaster"
+            transitionAppear={true}
+            transitionAppearTimeout={500}
+            transitionEnter={false}
+            transitionLeaveTimeout={500}>
+            {this.state.consent &&
+              !this.state.consent.alreadyAsked &&
+              <ConsentToaster
+                key={'consent-toaster'}
+                ref={this.toasterRef}
+                consentHandler={this.consentHandler}
+                dismissHandler={this.dismissHandler}
+              />
+            }
+          </ReactCSSTransitionGroup>
+        </div>
+      </Router>
     );
   }
 }

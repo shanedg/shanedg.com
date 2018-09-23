@@ -3,18 +3,18 @@ import React, { Component } from 'react';
 class SimpleDateRange extends Component {
   monthToString(monthIndex) {
     const months = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December'
+      'january',
+      'february',
+      'march',
+      'april',
+      'may',
+      'june',
+      'july',
+      'august',
+      'september',
+      'october',
+      'november',
+      'december'
     ];
 
     if (monthIndex < months.length) {
@@ -39,11 +39,13 @@ class SimpleDateRange extends Component {
       endString = this.monthToString(endMonth) + ' ' + endYear;
     }
 
+    let end = this.props.dates.end === 'present' ? new Date() : this.props.dates.end;
+
     return (
       <span className="simple-dates">
         <time dateTime={this.props.dates.start}>
           {startString}
-        </time> &ndash; <time dateTime={this.props.dates.end === 'present' ? new Date() : this.props.dates.end}>
+        </time> &ndash; <time dateTime={end}>
           {endString === 'present' ? <em>{endString}</em> : endString}
         </time>
       </span>
