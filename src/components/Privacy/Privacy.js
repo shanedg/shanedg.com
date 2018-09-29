@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Switch from '@material-ui/core/Switch';
+import BrandSwitch from './BrandSwitch';
 
 import './Privacy.css';
 
@@ -53,12 +53,11 @@ class Privacy extends Component {
         </p>
 
         <div className="options">
-          {/* <label htmlFor="cookies-opt-in">opt in to this site's cookies:</label> */}
-          {/* <input type="checkbox" name="cookies-opt-in" id="cookies-opt-in" onChange={this.consentToggle} checked={this.props.consent.consentGranted} /> */}
-          <Switch
+          <BrandSwitch
             checked={this.props.consent.consentGranted}
             onChange={this.consentToggle}
             value="cookieConsentSwitch"
+            label="opt in or out of this site's cookies"
           />
 
           {this.props.consent.alreadyAsked &&
