@@ -16,13 +16,10 @@ class Snippet extends Component {
   }
 
   render() {
-
     return (
       <div className="Snippet">
         <pre>
-          <code>
-            {this.props.snippet || 'console.log(\'whoops\');'}
-          </code>
+          <code>{this.props.snippet || "console.log('whoops');"}</code>
         </pre>
       </div>
     );

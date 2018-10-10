@@ -11,16 +11,8 @@ it('renders without crashing', () => {
       end: new Date()
     },
     roleTitle: 'test role title',
-    responsibilities: [
-      'a',
-      'b',
-      'c'
-    ],
-    projects: [
-      '1',
-      '2',
-      '3'
-    ]
+    responsibilities: ['a', 'b', 'c'],
+    projects: ['1', '2', '3']
   };
   ReactDOM.render(<Employer jobDetails={jobDetails} />, div);
   ReactDOM.unmountComponentAtNode(div);
