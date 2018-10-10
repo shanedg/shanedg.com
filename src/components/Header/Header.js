@@ -4,7 +4,6 @@ import './Header.css';
 import shaneface from './images/portrait-shane_min.png';
 
 class Header extends Component {
-
   render() {
     return (
       <header className="header">

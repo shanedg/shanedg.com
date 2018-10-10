@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Route from 'react-router-dom/Route';
 import Switch from 'react-router-dom/Switch';
@@ -9,7 +8,7 @@ import PropTypes from 'prop-types';
 import { RouteTransition } from 'react-router-transition';
 
 const NO_MATCH = {
-  key: 'no-match',
+  key: 'no-match'
 };
 
 /**
@@ -24,25 +23,27 @@ function getLocationKey(location) {
  * to persist matches/allow for nesting/etc.
  */
 function getMatchedRoute(children, pathname) {
-  return React.Children.toArray(children).find(child => {
-    return matchPath(pathname, {
-      exact: child.props.exact,
-      path: child.props.path,
-    });
-  }) || NO_MATCH;
+  return (
+    React.Children.toArray(children).find(child => {
+      return matchPath(pathname, {
+        exact: child.props.exact,
+        path: child.props.path
+      });
+    }) || NO_MATCH
+  );
 }
 
 class AnimatedSwitch extends React.Component {
   static propTypes = {
     location: PropTypes.shape({
       key: PropTypes.string,
-      pathname: PropTypes.string,
-    }),
+      pathname: PropTypes.string
+    })
   };
 
   state = {
     key: getLocationKey(this.props.location),
-    match: getMatchedRoute(this.props.children, this.props.location.pathname),
+    match: getMatchedRoute(this.props.children, this.props.location.pathname)
   };
 
   matches = 0;
@@ -50,13 +51,13 @@ class AnimatedSwitch extends React.Component {
   componentWillReceiveProps(nextProps) {
     const nextMatch = getMatchedRoute(
       nextProps.children,
-      nextProps.location.pathname,
+      nextProps.location.pathname
     );
 
     if (this.state.match.key !== nextMatch.key) {
       this.setState({
         match: nextMatch,
-        key: getLocationKey(nextProps.location) + ++this.matches,
+        key: getLocationKey(nextProps.location) + ++this.matches
       });
     }
   }

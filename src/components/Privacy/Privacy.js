@@ -19,7 +19,9 @@ class Privacy extends Component {
   componentWillUnmount() {
     // Only in browser context:
     if (window && document) {
-      document.querySelector('script[src="https://cdn.iubenda.com/iubenda.js"]').remove();
+      document
+        .querySelector('script[src="https://cdn.iubenda.com/iubenda.js"]')
+        .remove();
     }
   }
 
@@ -29,26 +31,33 @@ class Privacy extends Component {
 
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
-      'event': `cookie_consent_update_${status ? 'granted' : 'revoked'}`
+      event: `cookie_consent_update_${status ? 'granted' : 'revoked'}`
     });
   }
 
   // Create iubenda generated privacy policy embed script
   iubendaClientSideLoader(d) {
-    var s = d.createElement("script"),
-      tag = d.getElementsByTagName("body")[0];
-    s.src="https://cdn.iubenda.com/iubenda.js";
+    var s = d.createElement('script'),
+      tag = d.getElementsByTagName('body')[0];
+    s.src = 'https://cdn.iubenda.com/iubenda.js';
     tag.appendChild(s);
   }
 
   render() {
-   return (
-     <section className="Privacy">
+    return (
+      <section className="Privacy">
         <h2>privacy</h2>
-        
-        <p>for information about what personal data this site collects:&nbsp;
+
+        <p>
+          for information about what personal data this site collects:&nbsp;
           {/* <!-- Begin iubenda generated privacy policy --> */}
-          <a href="https://www.iubenda.com/privacy-policy/68672540" className="iubenda-black iubenda-embed " title="Privacy Policy">privacy policy</a>
+          <a
+            href="https://www.iubenda.com/privacy-policy/68672540"
+            className="iubenda-black iubenda-embed "
+            title="Privacy Policy"
+          >
+            privacy policy
+          </a>
           {/* <!-- End iubenda generated privacy policy --> */}
         </p>
 
@@ -61,14 +70,16 @@ class Privacy extends Component {
           />
 
           {this.props.consent.alreadyAsked &&
-            (
-              this.props.consent.consentGranted ?
-              <p><strong>> you're opted-in to cookies</strong></p> :
-              <p><strong>> you're opted-out of cookies</strong></p>
-            )
-          }
+            (this.props.consent.consentGranted ? (
+              <p>
+                <strong>> you're opted-in to cookies</strong>
+              </p>
+            ) : (
+              <p>
+                <strong>> you're opted-out of cookies</strong>
+              </p>
+            ))}
         </div>
-
       </section>
     );
   }
