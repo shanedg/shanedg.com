@@ -39,13 +39,13 @@ class SimpleDateRange extends Component {
       endString = this.monthToString(endMonth) + ' ' + endYear;
     }
 
-    let end = this.props.dates.end === 'present' ? new Date() : this.props.dates.end;
+    let end =
+      this.props.dates.end === 'present' ? new Date() : this.props.dates.end;
 
     return (
       <span className="simple-dates">
-        <time dateTime={this.props.dates.start}>
-          {startString}
-        </time> &ndash; <time dateTime={end}>
+        <time dateTime={this.props.dates.start}>{startString}</time> &ndash;{' '}
+        <time dateTime={end}>
           {endString === 'present' ? <em>{endString}</em> : endString}
         </time>
       </span>

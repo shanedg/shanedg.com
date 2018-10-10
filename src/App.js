@@ -13,13 +13,9 @@ import ConsentToaster from './components/Utils/ConsentToaster';
 // source here: https://github.com/maisano/react-router-transition
 import RouteWrapper from './components/AnimatedSwitch/AnimatedSwitch';
 
-import {
-  BrowserRouter as Router,
-  Route
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 class App extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -74,12 +70,12 @@ class App extends Component {
 
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
-        'event': 'cookie_consent_granted'
+        event: 'cookie_consent_granted'
       });
     } else {
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
-        'event': 'cookie_consent_denied'
+        event: 'cookie_consent_denied'
       });
     }
 
@@ -112,11 +108,9 @@ class App extends Component {
   }
 
   render() {
-
     return (
       <Router>
         <div className="App" style={this.state.appOuterStyles}>
-
           <div className="App-inner" style={this.state.appInnerStyles}>
             <Header />
             <Nav />
@@ -133,7 +127,7 @@ class App extends Component {
                 x: 0,
                 opacity: 1
               }}
-              mapStyles={(style) => {
+              mapStyles={style => {
                 return {
                   opacity: style.opacity,
                   transform: `translateX(${style.x}vw)`
@@ -144,12 +138,16 @@ class App extends Component {
               <Route exact path="/" component={Home} />
               <Route path="/work" component={Work} />
               <Route path="/contact" component={Contact} />
-              <Route path="/privacy" render={(props) => (
-                <Privacy {...props}
-                  consent={this.state.consent}
-                  updateConsent={this.updateConsent}
-                />
-              )} />
+              <Route
+                path="/privacy"
+                render={props => (
+                  <Privacy
+                    {...props}
+                    consent={this.state.consent}
+                    updateConsent={this.updateConsent}
+                  />
+                )}
+              />
             </RouteWrapper>
           </div>
 
@@ -158,16 +156,17 @@ class App extends Component {
             transitionAppear={true}
             transitionAppearTimeout={500}
             transitionEnter={false}
-            transitionLeaveTimeout={500}>
+            transitionLeaveTimeout={500}
+          >
             {this.state.consent &&
-              !this.state.consent.alreadyAsked &&
-              <ConsentToaster
-                key={'consent-toaster'}
-                ref={this.toasterRef}
-                consentHandler={this.consentHandler}
-                dismissHandler={this.dismissHandler}
-              />
-            }
+              !this.state.consent.alreadyAsked && (
+                <ConsentToaster
+                  key={'consent-toaster'}
+                  ref={this.toasterRef}
+                  consentHandler={this.consentHandler}
+                  dismissHandler={this.dismissHandler}
+                />
+              )}
           </ReactCSSTransitionGroup>
         </div>
       </Router>

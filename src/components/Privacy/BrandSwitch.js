@@ -9,47 +9,46 @@ const styles = theme => ({
     '&$colorChecked': {
       color: '#376e8c',
       '& + $colorBar': {
-        backgroundColor: '#376e8c',
-      },
-    },
+        backgroundColor: '#376e8c'
+      }
+    }
   },
   colorBar: {},
   colorChecked: {},
   label: {
-    fontFamily: '"Share Tech Mono", monospace',
+    fontFamily: '"Share Tech Mono", monospace'
   }
 });
 
 class BrandSwitch extends Component {
-
   render() {
     const { classes } = this.props;
 
     return (
-        <FormControlLabel
-          control={
-            <Switch
-              checked={this.props.checked}
-              onChange={this.props.onChange}
-              value={this.props.value}
-              classes={{
-                switchBase: classes.colorSwitchBase,
-                checked: classes.colorChecked,
-                bar: classes.colorBar,
-              }}
-            />
-          }
-          label={this.props.label}
-          classes={{
-            label: classes.label
-          }}
-        />
+      <FormControlLabel
+        control={
+          <Switch
+            checked={this.props.checked}
+            onChange={this.props.onChange}
+            value={this.props.value}
+            classes={{
+              switchBase: classes.colorSwitchBase,
+              checked: classes.colorChecked,
+              bar: classes.colorBar
+            }}
+          />
+        }
+        label={this.props.label}
+        classes={{
+          label: classes.label
+        }}
+      />
     );
   }
 }
 
 BrandSwitch.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(BrandSwitch);
