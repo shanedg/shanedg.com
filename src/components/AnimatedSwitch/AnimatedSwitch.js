@@ -34,12 +34,12 @@ function getMatchedRoute(children, pathname) {
 }
 
 class AnimatedSwitch extends React.Component {
-  // static propTypes = {
-  //   location: PropTypes.shape({
-  //     key: PropTypes.string,
-  //     pathname: PropTypes.string
-  //   })
-  // };
+  static propTypes = {
+    location: PropTypes.shape({
+      key: PropTypes.string,
+      pathname: PropTypes.string
+    })
+  };
 
   state = {
     key: getLocationKey(this.props.location),
