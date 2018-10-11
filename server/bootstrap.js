@@ -1,8 +1,8 @@
-require('ignore-styles');
+require("ignore-styles");
 
-require('babel-register')({
-  ignore: [ /(node_modules)/ ],
-  presets: ['es2015', 'react-app']
+require("@babel/register")({
+  presets: ["@babel/preset-env", "@babel/preset-react"],
+  plugins: ["@babel/plugin-proposal-class-properties"]
 });
 
-require('./index');
+require("./index");
