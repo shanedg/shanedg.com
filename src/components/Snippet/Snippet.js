@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Snippet.css';
+import './Snippet.scss';
 
 import hljs from 'highlight.js/lib/highlight';
 import javascript from 'highlight.js/lib/languages/javascript';

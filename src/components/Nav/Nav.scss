@@ -1,0 +1,14 @@
+.Nav {
+  ul {
+    list-style: none;
+    display: flex;
+    margin: 1rem 0;
+
+    .active-page,
+    .active-page:hover {
+      background: white;
+      color: #202020;
+      cursor: default;
+    }
+  }
+}
