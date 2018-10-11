@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import BrandSwitch from './BrandSwitch';
 
-import './Privacy.css';
+import './Privacy.scss';
 
 class Privacy extends Component {
   constructor(props) {

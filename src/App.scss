@@ -1,0 +1,45 @@
+.App {
+  .App-inner {
+    padding: 0 0 1rem;
+    transition: padding 500ms ease-out, min-height 500ms ease-out;
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    min-height: 88vh;
+
+    /* Route transitions */
+    .switch-wrapper {
+      position: relative;
+
+      & > div {
+        position: absolute;
+        width: 100%;
+      }
+    }
+
+    @media (min-width: 768px) {
+      overflow: visible;
+      max-width: 768px;
+    }
+  }
+
+  a,
+  a:visited {
+    transition: background-color 250ms ease-out, color 250ms ease-out;
+    padding: 0 0.3rem;
+    background: #202020;
+    color: white;
+    border-radius: 2px;
+  }
+
+  a:hover {
+    background: white;
+    color: #202020;
+  }
+
+  .button {
+    cursor: pointer;
+  }
+}

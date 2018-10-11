@@ -1,0 +1,87 @@
+.Employer {
+  margin: 0;
+
+  &:last-child {
+    margin: 0 0 4rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 1rem;
+    margin: 0;
+
+    li {
+      margin: 0 0 1rem 0;
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+
+  .employer-heading {
+    padding: 0 0.25rem;
+    color: #202020;
+  }
+
+  .employer-name {
+    margin: 2rem 0 0.5rem;
+  }
+
+  &:first-of-type {
+    .employer-name {
+      margin: 1rem 0 0.5rem;
+    }
+  }
+
+  .role-body {
+    padding: 0 0 0 0.25rem;
+
+    .role-heading {
+      display: flex;
+      align-items: center;
+      color: #202020;
+      margin: 2rem 0 0;
+
+      .toggle-role-details {
+        border: none;
+        font-weight: bold;
+        background: #77a1b7;
+        color: #fff;
+        border-radius: 2px;
+        transition: background-color 250ms ease-out, color 250ms ease-out;
+        padding: 0;
+        width: 1.5rem;
+        height: 1.5rem;
+        margin: 0 0 1px 0;
+
+        &:hover {
+          background: #376e8c;
+        }
+
+        &.toggle-open {
+          background: #376e8c;
+
+          &:hover {
+            background: #77a1b7;
+          }
+        }
+      }
+
+      .role-title {
+        margin: 0 0 0 1rem;
+        letter-spacing: 2px;
+      }
+    }
+
+    .responsibilities {
+      border-radius: 12px 0 0 12px;
+      border-left: 1.5rem solid #77a1b7;
+      overflow: hidden;
+
+      @media (min-width: 812px) {
+        max-width: 75%;
+      }
+    }
+  }
+}

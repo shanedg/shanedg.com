@@ -7,7 +7,7 @@ import {
 } from 'react-motion';
 import range from 'lodash.range';
 
-import './Employer.css';
+import './Employer.scss';
 import SimpleDateRange from './SimpleDateRange';
 
 class Employer extends Component {

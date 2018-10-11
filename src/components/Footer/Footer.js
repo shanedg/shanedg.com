@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Snippet from '../Snippet/Snippet';
-import './Footer.css';
+import './Footer.scss';
 
 class Footer extends Component {
   render() {
