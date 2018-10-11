@@ -1,0 +1,106 @@
+.Consent-Toaster {
+  position: fixed;
+  bottom: 0;
+  transition: bottom 50ms ease-out;
+  width: 100%;
+  background: #376e8c;
+  border-radius: 2px 2px 0 0;
+  color: white;
+
+  .toaster-body {
+    padding: 0.5rem;
+    box-sizing: border-box;
+    font-size: 0.75rem;
+
+    p {
+      margin: 0 auto;
+      text-align: justify;
+    }
+
+    @media (min-width: 768px) {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: 0.5rem;
+      max-width: 768px;
+      margin: 0 auto;
+
+      p {
+        text-align: left;
+        padding: 0 1rem 0 0;
+      }
+    }
+
+    iframe {
+      vertical-align: middle;
+      margin: 0 1rem 0;
+    }
+
+    .consent-choice {
+      display: flex;
+      flex-basis: 48%;
+      margin: 0.5rem auto 0;
+      justify-content: space-between;
+      align-items: center;
+
+      .button {
+        background: white;
+        padding: 0.25rem 1.125rem;
+        border-radius: 1px;
+        border: 0;
+        box-shadow: 2px 2px rgba(0, 0, 0, 0.1);
+        display: inline-block;
+        width: 48%;
+        line-height: 1;
+        transition: background-color 250ms ease-out, color 350ms ease-out,
+          box-shadow 250ms ease-out;
+        text-transform: uppercase;
+
+        &:hover {
+          background: #202020;
+          color: #fff;
+          box-shadow: 2px 3px rgba(0, 0, 0, 0.2);
+        }
+      }
+
+      @media (min-width: 768px) {
+        margin: 0;
+      }
+    }
+  }
+
+  .dismiss-toaster {
+    border: 0;
+    color: white;
+    background: #376e8c;
+    cursor: pointer;
+    position: absolute;
+    top: -1.25rem;
+    left: 1.22rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 2px 2px 0 0;
+    font-weight: bold;
+
+    &:hover {
+      color: #202020;
+    }
+  }
+
+  /* 
+   * ReactCSSTransitionGroup Mount & Unmount
+   */
+  &.toaster-appear {
+    bottom: -50vh;
+  }
+  &.toaster-appear.toaster-appear-active {
+    bottom: 0;
+    transition: bottom 500ms ease-out;
+  }
+  &.toaster-leave {
+    bottom: 0;
+  }
+  &.toaster-leave.toaster-leave-active {
+    bottom: -50vh;
+    transition: bottom 500ms ease-out;
+  }
+}

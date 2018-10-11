@@ -9,6 +9,7 @@
     "js-cookie": "^2.2.0",
     "lint-staged": "^7.3.0",
     "lodash.range": "^3.2.0",
+    "node-sass": "^4.9.3",
     "prettier": "^1.14.3",
     "react": "^16.4.2",
     "react-addons-css-transition-group": "^15.6.2",

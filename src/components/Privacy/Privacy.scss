@@ -1,0 +1,31 @@
+.Privacy {
+  padding: 0 1rem;
+  margin: 0 0 4rem;
+
+  h2 {
+    padding: 0.125rem 0.5rem;
+    background: #376e8c;
+    color: white;
+    margin: 0 0 2rem;
+    border-radius: 2px;
+  }
+
+  p {
+    padding: 0 0 0 0.5rem;
+    line-height: 1.5;
+  }
+
+  iframe {
+    vertical-align: middle;
+  }
+
+  .options {
+    padding: 0 0 0 0.5rem;
+    line-height: 1.5;
+  }
+
+  input[type="checkbox"] {
+    vertical-align: middle;
+    margin: 0 0.5ex;
+  }
+}

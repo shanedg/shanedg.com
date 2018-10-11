@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import './ConsentToaster.css';
+import './ConsentToaster.scss';
 
 class ConsentToaster extends Component {
   render() {

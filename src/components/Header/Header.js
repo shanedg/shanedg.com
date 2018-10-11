@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './Header.css';
+import './Header.scss';
 import shaneface from './images/portrait-shane_min.png';
 
 class Header extends Component {
