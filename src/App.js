@@ -13,7 +13,7 @@ import ConsentToaster from './components/Utils/ConsentToaster';
 // source here: https://github.com/maisano/react-router-transition
 import RouteWrapper from './components/AnimatedSwitch/AnimatedSwitch';
 
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
@@ -109,67 +109,65 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
-        <div className="App" style={this.state.appOuterStyles}>
-          <div className="App-inner" style={this.state.appInnerStyles}>
-            <Header />
-            <Nav />
-            <RouteWrapper
-              atEnter={{
-                x: 100,
-                opacity: 1
-              }}
-              atLeave={{
-                x: -100,
-                opacity: 0
-              }}
-              atActive={{
-                x: 0,
-                opacity: 1
-              }}
-              mapStyles={style => {
-                return {
-                  opacity: style.opacity,
-                  transform: `translateX(${style.x}vw)`
-                };
-              }}
-              className="switch-wrapper"
-            >
-              <Route exact path="/" component={Home} />
-              <Route path="/work" component={Work} />
-              <Route path="/contact" component={Contact} />
-              <Route
-                path="/privacy"
-                render={props => (
-                  <Privacy
-                    {...props}
-                    consent={this.state.consent}
-                    updateConsent={this.updateConsent}
-                  />
-                )}
-              />
-            </RouteWrapper>
-          </div>
-
-          <ReactCSSTransitionGroup
-            transitionName="toaster"
-            transitionAppear={true}
-            transitionAppearTimeout={500}
-            transitionEnter={false}
-            transitionLeaveTimeout={500}
+      <div className="App" style={this.state.appOuterStyles}>
+        <div className="App-inner" style={this.state.appInnerStyles}>
+          <Header />
+          <Nav />
+          <RouteWrapper
+            atEnter={{
+              x: 100,
+              opacity: 1
+            }}
+            atLeave={{
+              x: -100,
+              opacity: 0
+            }}
+            atActive={{
+              x: 0,
+              opacity: 1
+            }}
+            mapStyles={style => {
+              return {
+                opacity: style.opacity,
+                transform: `translateX(${style.x}vw)`
+              };
+            }}
+            className="switch-wrapper"
           >
-            {this.state.consent &&
-              !this.state.consent.alreadyAsked && (
-                <ConsentToaster
-                  key={'consent-toaster'}
-                  ref={this.toasterRef}
-                  consentHandler={this.consentHandler}
-                  dismissHandler={this.dismissHandler}
+            <Route exact path="/" component={Home} />
+            <Route path="/work" component={Work} />
+            <Route path="/contact" component={Contact} />
+            <Route
+              path="/privacy"
+              render={props => (
+                <Privacy
+                  {...props}
+                  consent={this.state.consent}
+                  updateConsent={this.updateConsent}
                 />
               )}
-          </ReactCSSTransitionGroup>
+            />
+          </RouteWrapper>
         </div>
-      </Router>
+
+        <ReactCSSTransitionGroup
+          transitionName="toaster"
+          transitionAppear={true}
+          transitionAppearTimeout={500}
+          transitionEnter={false}
+          transitionLeaveTimeout={500}
+        >
+          {this.state.consent &&
+            !this.state.consent.alreadyAsked && (
+              <ConsentToaster
+                key={'consent-toaster'}
+                ref={this.toasterRef}
+                consentHandler={this.consentHandler}
+                dismissHandler={this.dismissHandler}
+              />
+            )}
+        </ReactCSSTransitionGroup>
+      </div>
     );
   }
 }

@@ -4,6 +4,7 @@ import './index.scss';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import Cookies from 'js-cookie';
+import { BrowserRouter } from 'react-router-dom';
 
 const cookieConsentValue = Cookies.get('cookie_consent');
 let alreadyAsked = false;
@@ -18,5 +19,10 @@ const consent = {
   consentGranted: alreadyAsked ? cookieConsentValue === 'true' : false
 };
 
-ReactDOM.render(<App consent={consent} />, document.getElementById('root'));
+ReactDOM.render(
+  <BrowserRouter>
+    <App consent={consent} />
+  </BrowserRouter>,
+  document.getElementById('root')
+);
 registerServiceWorker();
