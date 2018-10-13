@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import * as serviceWorker from './serviceWorker';
+
 import Cookies from 'js-cookie';
 
 const cookieConsentValue = Cookies.get('cookie_consent');
@@ -19,4 +20,4 @@ const consent = {
 };
 
 ReactDOM.render(<App consent={consent} />, document.getElementById('root'));
-registerServiceWorker();
+serviceWorker.register();
