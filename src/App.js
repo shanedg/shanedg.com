@@ -18,11 +18,23 @@ import { Route } from 'react-router-dom';
 class App extends Component {
   constructor(props) {
     super(props);
+
+    const cookieConsentValue = Cookies.get('cookie_consent');
+    let alreadyAsked = false;
+    if (cookieConsentValue !== undefined) {
+      alreadyAsked = true;
+    } else {
+      alreadyAsked = false;
+    }
+
+    const consent = {
+      alreadyAsked: alreadyAsked,
+      consentGranted: alreadyAsked ? cookieConsentValue === 'true' : false
+    };
+
     this.state = {
-      consent: this.props.consent,
-      appOuterStyles: {
-        paddingBottom: '0'
-      },
+      consent: consent,
+      appOuterStyles: { paddingBottom: '0' },
       appInnerStyles: {}
     };
 
