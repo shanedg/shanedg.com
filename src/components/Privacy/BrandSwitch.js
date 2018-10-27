@@ -9,15 +9,15 @@ const styles = theme => ({
     '&$colorChecked': {
       color: '#376e8c',
       '& + $colorBar': {
-        backgroundColor: '#376e8c'
-      }
-    }
+        backgroundColor: '#376e8c',
+      },
+    },
   },
   colorBar: {},
   colorChecked: {},
   label: {
-    fontFamily: '"Share Tech Mono", monospace'
-  }
+    fontFamily: '"Share Tech Mono", monospace',
+  },
 });
 
 class BrandSwitch extends Component {
@@ -34,13 +34,13 @@ class BrandSwitch extends Component {
             classes={{
               switchBase: classes.colorSwitchBase,
               checked: classes.colorChecked,
-              bar: classes.colorBar
+              bar: classes.colorBar,
             }}
           />
         }
         label={this.props.label}
         classes={{
-          label: classes.label
+          label: classes.label,
         }}
       />
     );
@@ -48,7 +48,7 @@ class BrandSwitch extends Component {
 }
 
 BrandSwitch.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(BrandSwitch);

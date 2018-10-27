@@ -16,7 +16,7 @@ if (cookieConsentValue !== undefined) {
 
 const consent = {
   alreadyAsked: alreadyAsked,
-  consentGranted: alreadyAsked ? cookieConsentValue === 'true' : false
+  consentGranted: alreadyAsked ? cookieConsentValue === 'true' : false,
 };
 
 ReactDOM.render(<App consent={consent} />, document.getElementById('root'));

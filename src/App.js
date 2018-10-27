@@ -21,9 +21,9 @@ class App extends Component {
     this.state = {
       consent: this.props.consent,
       appOuterStyles: {
-        paddingBottom: '0'
+        paddingBottom: '0',
       },
-      appInnerStyles: {}
+      appInnerStyles: {},
     };
 
     this.toasterRef = React.createRef();
@@ -47,8 +47,8 @@ class App extends Component {
     if (!this.state.consent.alreadyAsked) {
       this.setState({
         appOuterStyles: {
-          paddingBottom: this.toasterRef.current.clientHeight
-        }
+          paddingBottom: this.toasterRef.current.clientHeight,
+        },
       });
     }
   }
@@ -57,8 +57,8 @@ class App extends Component {
     this.setState({
       consent: {
         alreadyAsked: true,
-        consentGranted: isGranted
-      }
+        consentGranted: isGranted,
+      },
     });
     Cookies.set('cookie_consent', isGranted ? 'true' : 'false');
   }
@@ -70,24 +70,24 @@ class App extends Component {
 
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
-        event: 'cookie_consent_granted'
+        event: 'cookie_consent_granted',
       });
     } else {
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
-        event: 'cookie_consent_denied'
+        event: 'cookie_consent_denied',
       });
     }
 
     this.setState({
       consent: {
         alreadyAsked: true,
-        consentGranted: consented
+        consentGranted: consented,
       },
       appOuterStyles: {},
       appInnerStyles: {
-        minHeight: '100vh'
-      }
+        minHeight: '100vh',
+      },
     });
     Cookies.set('cookie_consent', consented ? 'true' : 'false');
   }
@@ -97,12 +97,12 @@ class App extends Component {
       this.setState({
         consent: {
           alreadyAsked: true,
-          consentGranted: false
+          consentGranted: false,
         },
         appOuterStyles: {},
         appInnerStyles: {
-          minHeight: '100vh'
-        }
+          minHeight: '100vh',
+        },
       });
     }
   }
@@ -117,20 +117,20 @@ class App extends Component {
             <RouteWrapper
               atEnter={{
                 x: 100,
-                opacity: 1
+                opacity: 1,
               }}
               atLeave={{
                 x: -100,
-                opacity: 0
+                opacity: 0,
               }}
               atActive={{
                 x: 0,
-                opacity: 1
+                opacity: 1,
               }}
               mapStyles={style => {
                 return {
                   opacity: style.opacity,
-                  transform: `translateX(${style.x}vw)`
+                  transform: `translateX(${style.x}vw)`,
                 };
               }}
               className="switch-wrapper"

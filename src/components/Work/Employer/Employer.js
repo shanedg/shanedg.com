@@ -3,7 +3,7 @@ import {
   TransitionMotion,
   StaggeredMotion,
   spring,
-  presets
+  presets,
 } from 'react-motion';
 import range from 'lodash.range';
 
@@ -15,7 +15,7 @@ class Employer extends Component {
     super(props);
     this.state = {
       open: false,
-      items: []
+      items: [],
     };
 
     this.toggleRoleDetails = this.toggleRoleDetails.bind(this);
@@ -26,16 +26,16 @@ class Employer extends Component {
       if (prevState.items.length > 0) {
         return {
           items: [],
-          open: false
+          open: false,
         };
       } else {
         return {
           items: [
             {
-              key: 'ask-me-about'
-            }
+              key: 'ask-me-about',
+            },
           ],
-          open: true
+          open: true,
         };
       }
     });
@@ -44,14 +44,14 @@ class Employer extends Component {
   willLeave() {
     return {
       transform: spring(0, presets.noWobble),
-      maxHeight: spring(0, presets.noWobble)
+      maxHeight: spring(0, presets.noWobble),
     };
   }
 
   willEnter() {
     return {
       transform: 0,
-      maxHeight: 0
+      maxHeight: 0,
     };
   }
 
@@ -60,8 +60,8 @@ class Employer extends Component {
       ...item,
       style: {
         transform: 0,
-        maxHeight: 0
-      }
+        maxHeight: 0,
+      },
     }));
   };
 
@@ -73,8 +73,8 @@ class Employer extends Component {
         ...item,
         style: {
           transform: spring(1, presets.stiff),
-          maxHeight: 200
-        }
+          maxHeight: 200,
+        },
       };
     });
   };
@@ -117,14 +117,16 @@ class Employer extends Component {
                       style={{
                         transform: `scaleY(${config.style.transform})`,
                         maxHeight: config.style.maxHeight + 'px',
-                        overflow: 'hidden'
+                        overflow: 'hidden',
                       }}
                     >
                       {this.props.jobDetails.askMeAbout && (
                         <StaggeredMotion
                           defaultStyles={range(
                             this.props.jobDetails.askMeAbout.length
-                          ).map(() => ({ x: -100 }))}
+                          ).map(() => ({
+                            x: -100,
+                          }))}
                           styles={prevInterpolatedStyles =>
                             prevInterpolatedStyles.map((_, i) => {
                               return i === 0
@@ -133,7 +135,7 @@ class Employer extends Component {
                                     x: spring(
                                       prevInterpolatedStyles[i - 1].x,
                                       presets.stiff
-                                    )
+                                    ),
                                   };
                             })
                           }
@@ -146,7 +148,7 @@ class Employer extends Component {
                                     <li
                                       key={i}
                                       style={{
-                                        transform: `translateX(${style.x}vw`
+                                        transform: `translateX(${style.x}vw`,
                                       }}
                                     >
                                       {this.props.jobDetails.askMeAbout[i]}
