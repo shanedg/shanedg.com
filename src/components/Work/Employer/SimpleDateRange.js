@@ -14,7 +14,7 @@ class SimpleDateRange extends Component {
       'september',
       'october',
       'november',
-      'december'
+      'december',
     ];
 
     if (monthIndex < months.length) {

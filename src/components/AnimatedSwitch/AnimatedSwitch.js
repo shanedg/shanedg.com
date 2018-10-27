@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import { RouteTransition } from 'react-router-transition';
 
 const NO_MATCH = {
-  key: 'no-match'
+  key: 'no-match',
 };
 
 /**
@@ -27,7 +27,7 @@ function getMatchedRoute(children, pathname) {
     React.Children.toArray(children).find(child => {
       return matchPath(pathname, {
         exact: child.props.exact,
-        path: child.props.path
+        path: child.props.path,
       });
     }) || NO_MATCH
   );
@@ -37,13 +37,13 @@ class AnimatedSwitch extends React.Component {
   static propTypes = {
     location: PropTypes.shape({
       key: PropTypes.string,
-      pathname: PropTypes.string
-    })
+      pathname: PropTypes.string,
+    }),
   };
 
   state = {
     key: getLocationKey(this.props.location),
-    match: getMatchedRoute(this.props.children, this.props.location.pathname)
+    match: getMatchedRoute(this.props.children, this.props.location.pathname),
   };
 
   matches = 0;
@@ -57,7 +57,7 @@ class AnimatedSwitch extends React.Component {
     if (this.state.match.key !== nextMatch.key) {
       this.setState({
         match: nextMatch,
-        key: getLocationKey(nextProps.location) + ++this.matches
+        key: getLocationKey(nextProps.location) + ++this.matches,
       });
     }
   }

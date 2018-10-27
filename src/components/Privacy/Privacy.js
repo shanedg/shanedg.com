@@ -31,7 +31,7 @@ class Privacy extends Component {
 
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
-      event: `cookie_consent_update_${status ? 'granted' : 'revoked'}`
+      event: `cookie_consent_update_${status ? 'granted' : 'revoked'}`,
     });
   }
 

@@ -10,30 +10,30 @@ class Work extends Component {
         roleTitle: 'web engineer',
         dates: {
           start: new Date('2017-07-10'),
-          end: 'present'
+          end: 'present',
         },
         highlightsBlurb: 'what it is',
         askMeAbout: [
           'node, craftcms, wordpress',
           'react and vue js',
           'experimentation & personalization',
-          'content migration, re-platforming, site launches'
-        ]
+          'content migration, re-platforming, site launches',
+        ],
       },
       {
         employerName: "dick's sporting goods",
         roleTitle: 'front end web developer',
         dates: {
           start: new Date('2014-06-16'),
-          end: new Date('2017-07-06')
+          end: new Date('2017-07-06'),
         },
         highlightsBlurb: 'what it was',
         askMeAbout: [
           'conversion optimization, a/b testing',
           'integrating tech in the enterprise',
-          'responsive vs adaptive front end development'
-        ]
-      }
+          'responsive vs adaptive front end development',
+        ],
+      },
     ];
 
     return (
