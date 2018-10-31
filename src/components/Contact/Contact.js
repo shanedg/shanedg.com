@@ -23,8 +23,7 @@ class Contact extends Component {
           >
             linkedin
           </a>{' '}
-          or shoot me an{' '}
-          <a href="mailto:shanedgarrity+website@gmail.com">email</a>
+          or shoot me an <a href="mailto:shanedgarrity+ws@gmail.com">email</a>
         </p>
       </section>
     );
