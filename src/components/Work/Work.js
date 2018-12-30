@@ -6,11 +6,21 @@ class Work extends Component {
   render() {
     const work = [
       {
+        employerName: 'zipari',
+        roleTitle: 'front end developer',
+        dates: {
+          start: new Date('2018-11-05'),
+          end: 'present',
+        },
+        highlightsBlurb: 'what it is',
+        askMeAbout: ['angular', 'reactive forms', 'material ui'],
+      },
+      {
         employerName: 'braze (formerly appboy)',
         roleTitle: 'web engineer',
         dates: {
           start: new Date('2017-07-10'),
-          end: 'present',
+          end: new Date('2018-10-26'),
         },
         highlightsBlurb: 'what it is',
         askMeAbout: [
