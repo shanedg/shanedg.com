@@ -1,0 +1,31 @@
+version: 0.2
+
+env:
+  variables:
+    CI: "true"
+  # parameter-store:
+    # DISTRIBUTION_ID: "/Prod/CodeBuild/shanedg.com/Cloudfront_Distribution_ID"
+phases:
+  install:
+    commands:
+      - npm install yarn -g
+  pre_build:
+    commands:
+      - yarn install
+      - yarn test
+  build:
+    commands:
+      - yarn build
+  # post_build:
+    # commands:
+      # - aws cloudfront create-invalidation --distribution-id "${DISTRIBUTION_ID}" --paths /index.html /asset-manifest.json /favicon.ico /manifest.json /service-worker.js /robots.txt
+artifacts:
+  files:
+    - 'build/**/*'
+    - 'src/**/*'
+  name: shanedg-dot-com-ssr-$(AWS_REGION)-$(date +%Y-%m-%d)
+  #discard-paths: yes
+  # base-directory: build
+cache:
+  paths:
+    - 'node_modules/**/*'

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import './Header.scss';
-import shaneface from './images/portrait-shane_min.png';
+const shaneface = '/assets/portrait-shane_min.png';
 
 class Header extends Component {
   render() {

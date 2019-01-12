@@ -1,43 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import { BrowserRouter, StaticRouter } from 'react-router-dom';
 
-it('renders without crashing (initial, no consent)', () => {
+// Client-side routing
+it('renders without crashing, client-side BrowserRouter', () => {
   const div = document.createElement('div');
-  const consent = {
-    alreadyAsked: false,
-    consentGranted: false,
-  };
-  ReactDOM.render(<App consent={consent} />, div);
+  ReactDOM.render(
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>,
+    div
+  );
   ReactDOM.unmountComponentAtNode(div);
 });
 
-it('renders without crashing (consent denied)', () => {
+// Server-side rendering
+it('renders without crashing, server-side StaticRouter', () => {
   const div = document.createElement('div');
-  const consent = {
-    alreadyAsked: true,
-    consentGranted: false,
-  };
-  ReactDOM.render(<App consent={consent} />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
-
-it('renders without crashing (consent granted)', () => {
-  const div = document.createElement('div');
-  const consent = {
-    alreadyAsked: true,
-    consentGranted: true,
-  };
-  ReactDOM.render(<App consent={consent} />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
-
-it('renders without crashing (BAD STATE)', () => {
-  const div = document.createElement('div');
-  const consent = {
-    alreadyAsked: false,
-    consentGranted: true,
-  };
-  ReactDOM.render(<App consent={consent} />, div);
+  ReactDOM.render(
+    <StaticRouter context={{}}>
+      <App />
+    </StaticRouter>,
+    div
+  );
   ReactDOM.unmountComponentAtNode(div);
 });
