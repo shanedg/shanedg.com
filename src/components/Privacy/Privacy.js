@@ -1,14 +1,8 @@
 import React, { Component } from 'react';
-import BrandSwitch from './BrandSwitch';
 
 import './Privacy.scss';
 
 class Privacy extends Component {
-  constructor(props) {
-    super(props);
-    this.consentToggle = this.consentToggle.bind(this);
-  }
-
   componentDidMount() {
     // Only in browser context:
     if (window && document) {
@@ -23,16 +17,6 @@ class Privacy extends Component {
         .querySelector('script[src="https://cdn.iubenda.com/iubenda.js"]')
         .remove();
     }
-  }
-
-  consentToggle(e) {
-    const status = e.currentTarget.checked;
-    this.props.updateConsent(status);
-
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      event: `cookie_consent_update_${status ? 'granted' : 'revoked'}`,
-    });
   }
 
   // Create iubenda generated privacy policy embed script
@@ -60,26 +44,6 @@ class Privacy extends Component {
           </a>
           {/* <!-- End iubenda generated privacy policy --> */}
         </p>
-
-        <div className="options">
-          <BrandSwitch
-            checked={this.props.consent.consentGranted}
-            onChange={this.consentToggle}
-            value="cookieConsentSwitch"
-            label="opt in or out of this site's cookies"
-          />
-
-          {this.props.consent.alreadyAsked &&
-            (this.props.consent.consentGranted ? (
-              <p>
-                <strong>> you're opted-in to cookies</strong>
-              </p>
-            ) : (
-              <p>
-                <strong>> you're opted-out of cookies</strong>
-              </p>
-            ))}
-        </div>
       </section>
     );
   }
