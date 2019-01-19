@@ -33,7 +33,7 @@
     "eject": "react-scripts eject",
     "prettier": "./node_modules/.bin/prettier --write 'src/**/*.{js,jsx}'",
     "server": "NODE_ENV=production node server/bootstrap.js",
-    "postinstall": "build"
+    "postinstall": "yarn build"
   },
   "browserslist": [
     ">0.2%",
