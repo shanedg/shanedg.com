@@ -1,0 +1,14 @@
+{
+  "addons": [
+  ],
+  "buildpacks": [
+  ],
+  "env": {
+  },
+  "formation": {
+  },
+  "name": "shanedg-dot-com",
+  "scripts": {
+  },
+  "stack": "node"
+}
