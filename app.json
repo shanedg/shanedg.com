@@ -10,5 +10,5 @@
   "name": "shanedg-dot-com",
   "scripts": {
   },
-  "stack": "node"
+  "stack": "heroku/node"
 }
