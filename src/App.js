@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-import Cookies from 'js-cookie';
+// import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import './App.scss';
 import Header from './components/Header/Header';
 import Nav from './components/Nav/Nav';
@@ -8,7 +7,6 @@ import Home from './components/Home/Home';
 import Work from './components/Work/Work';
 import Contact from './components/Contact/Contact';
 import Privacy from './components/Privacy/Privacy';
-import ConsentToaster from './components/Utils/ConsentToaster';
 
 // source here: https://github.com/maisano/react-router-transition
 import RouteWrapper from './components/AnimatedSwitch/AnimatedSwitch';
@@ -19,104 +17,25 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    const cookieConsentValue = Cookies.get('cookie_consent');
-    let alreadyAsked = false;
-    if (cookieConsentValue !== undefined) {
-      alreadyAsked = true;
-    } else {
-      alreadyAsked = false;
-    }
-
-    const consent = {
-      alreadyAsked: alreadyAsked,
-      consentGranted: alreadyAsked ? cookieConsentValue === 'true' : false,
-    };
-
     this.state = {
-      consent: consent,
       appOuterStyles: { paddingBottom: '0' },
       appInnerStyles: {},
     };
 
-    this.toasterRef = React.createRef();
-
-    this.adjustPadding = this.adjustPadding.bind(this);
-    this.updateConsent = this.updateConsent.bind(this);
-    this.consentHandler = this.consentHandler.bind(this);
-    this.dismissHandler = this.dismissHandler.bind(this);
+    this.onResize = this.onResize.bind(this);
   }
 
   componentDidMount() {
-    this.adjustPadding();
-    window.addEventListener('resize', this.adjustPadding);
+    this.onResize();
+    window.addEventListener('resize', this.onResize);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.adjustPadding);
+    window.removeEventListener('resize', this.onResize);
   }
 
-  adjustPadding() {
-    if (!this.state.consent.alreadyAsked) {
-      this.setState({
-        appOuterStyles: {
-          paddingBottom: this.toasterRef.current.clientHeight,
-        },
-      });
-    }
-  }
-
-  updateConsent(isGranted) {
-    this.setState({
-      consent: {
-        alreadyAsked: true,
-        consentGranted: isGranted,
-      },
-    });
-    Cookies.set('cookie_consent', isGranted ? 'true' : 'false');
-  }
-
-  consentHandler(e) {
-    let consented = false;
-    if (e.currentTarget.id === 'cookie-consent-yes') {
-      consented = true;
-
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: 'cookie_consent_granted',
-      });
-    } else {
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: 'cookie_consent_denied',
-      });
-    }
-
-    this.setState({
-      consent: {
-        alreadyAsked: true,
-        consentGranted: consented,
-      },
-      appOuterStyles: {},
-      appInnerStyles: {
-        minHeight: '100vh',
-      },
-    });
-    Cookies.set('cookie_consent', consented ? 'true' : 'false');
-  }
-
-  dismissHandler(e) {
-    if (e.currentTarget.id === 'dismiss-consent-toaster') {
-      this.setState({
-        consent: {
-          alreadyAsked: true,
-          consentGranted: false,
-        },
-        appOuterStyles: {},
-        appInnerStyles: {
-          minHeight: '100vh',
-        },
-      });
-    }
+  onResize() {
+    // TODO: resize, debounce, etc
   }
 
   render() {
@@ -154,31 +73,15 @@ class App extends Component {
               render={props => (
                 <Privacy
                   {...props}
-                  consent={this.state.consent}
-                  updateConsent={this.updateConsent}
+                  /**
+                   * Example of prop passing in Route#render:
+                   * somePropName={this.someMemberValue}
+                   */
                 />
               )}
             />
           </RouteWrapper>
         </div>
-
-        <ReactCSSTransitionGroup
-          transitionName="toaster"
-          transitionAppear={true}
-          transitionAppearTimeout={500}
-          transitionEnter={false}
-          transitionLeaveTimeout={500}
-        >
-          {this.state.consent &&
-            !this.state.consent.alreadyAsked && (
-              <ConsentToaster
-                key={'consent-toaster'}
-                ref={this.toasterRef}
-                consentHandler={this.consentHandler}
-                dismissHandler={this.dismissHandler}
-              />
-            )}
-        </ReactCSSTransitionGroup>
       </div>
     );
   }
