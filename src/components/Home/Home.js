@@ -7,9 +7,14 @@ class Home extends Component {
     return (
       <section className="Home">
         <h2>home</h2>
+        <p>shane is professional web developer with a background in:</p>
+        <ul>
+          <li>front end dev</li>
+          <li>generalist work</li>
+        </ul>
         <p>
-          shane is an experienced developer with a background in front end and
-          generalist work. he lives and works in nyc.
+          as well as experience in both enterprise and startup environments. he
+          is currently based in nyc.
         </p>
       </section>
     );

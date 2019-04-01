@@ -73,7 +73,7 @@ class Employer extends Component {
         ...item,
         style: {
           transform: spring(1, presets.stiff),
-          maxHeight: 200,
+          maxHeight: 300,
         },
       };
     });
