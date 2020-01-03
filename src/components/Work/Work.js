@@ -6,11 +6,26 @@ class Work extends Component {
   render() {
     const work = [
       {
+        employerName: 'squarespace',
+        roleTitle: 'software engineer',
+        dates: {
+          start: new Date('2019-07-16'),
+          end: 'present',
+        },
+        highlightsBlurb: 'what it is',
+        askMeAbout: [
+          'make the legacy things play nice',
+          'miles of Webpack config',
+          'front end build tooling',
+          'transpilation, compilation, perspiration, polyfills',
+        ],
+      },
+      {
         employerName: 'zipari',
         roleTitle: 'front end developer',
         dates: {
           start: new Date('2018-11-05'),
-          end: 'present',
+          end: new Date('2019-06-14'),
         },
         highlightsBlurb: 'what it is',
         askMeAbout: [
